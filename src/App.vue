@@ -1,9 +1,13 @@
 <template>
-	<div id="app">
-		<nav>
-			<router-link to="/">Home</router-link> |
-			<router-link to="/about">About</router-link>
-		</nav>
+	<div id="app" class="tracking-regular">
+		<NavBar />
 		<router-view />
 	</div>
 </template>
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import NavBar from "./components/NavBar.vue";
+
+@Component({ components: { NavBar } })
+export default class App extends Vue {}
+</script>
