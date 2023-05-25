@@ -1,7 +1,7 @@
 <template>
 	<svg
-		width="80px"
-		height="40px"
+		width="100px"
+		height="60px"
 		class="fill-orange-600"
 		viewBox="0 0 48 24"
 		aria-hidden="true"
