@@ -9,10 +9,16 @@
 			class="w-28 flex justify-center grow relative content-between items-center iconHover"
 		>
 			<span
-				class="notification absolute top-0 right-0 w-6 h-6 pt-1 text-center bg-orange-300 rounded-full border-white border-2"
-				>7</span
+				class="notification absolute top-1 text-center font-bold text-xs align-top"
+				style="padding-top: 0.05rem; padding-left: 0.1rem"
 			>
-			<i class="far h-5 fa-bell"></i>
+				<div
+					class="bg-orange-400 rounded-full border-white border-2 px-1"
+				>
+					7
+				</div>
+			</span>
+			<i class="far h-5 fa-bell"> </i>
 			<i class="ml-3 fa-solid text-gray-400 fa-caret-down"></i>
 		</div>
 		<div class="flex justify-center items-center w-28 iconHover">
