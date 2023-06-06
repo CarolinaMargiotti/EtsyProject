@@ -3,11 +3,7 @@
 		class="bg-green-400 rounded w-4/6 absolute p-4 mt-3.5"
 		style="min-height: 500px"
 	>
-		<NavItemList
-			:divide="true"
-			:itemArrays="navOptions"
-			@categoryHovered="categoryHovered"
-		/>
+		<NavItemList :divide="true" :itemArrays="navOptions" />
 	</section>
 </template>
 <script lang="ts">
@@ -20,9 +16,5 @@ import { Categories } from "@/models/Categories";
 })
 export default class DropDownNav extends Vue {
 	public navOptions = Categories[0];
-
-	public categoryHovered(category: string) {
-		// alert(category);
-	}
 }
 </script>
