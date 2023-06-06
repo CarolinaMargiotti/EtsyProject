@@ -3,7 +3,7 @@
 		<Logo class="mr-2" />
 		<SearchBar />
 		<div class="w-20 flex justify-center items-center iconHover">
-			<i class="h-5 far fa-heart z-10"></i>
+			<i class="h-5 far fa-heart"></i>
 		</div>
 		<div
 			class="w-28 flex justify-center grow relative content-between items-center iconHover"

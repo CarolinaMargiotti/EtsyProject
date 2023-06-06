@@ -1,13 +1,18 @@
 <template>
 	<header
-		class="pb-3 pt-2 px-headerPad border-b-2 border-solid border-b-lightGray"
+		class="pb-3 pt-2 px-headerPad border-b-2 border-solid border-b-lightGray relative bg-white"
+		style="z-index: 2"
 	>
 		<TopBar />
-		<nav class="flex justify-between">
-			<router-link v-for="nav in navOptions" :key="nav" :to="nav.url">{{
-				nav.name
-			}}</router-link>
+		<nav :class="`flex justify-between`">
+			<router-link
+				v-for="(nav, index) in navOptions"
+				:key="index"
+				:to="nav.url"
+				>{{ nav.name }}</router-link
+			>
 		</nav>
+		<DropDownNav :divide="true" title="All Jewelry & Acessories" />
 	</header>
 </template>
 <script lang="ts">
@@ -15,9 +20,10 @@ import { Component, Vue } from "vue-property-decorator";
 import Logo from "../Logo.vue";
 import Input from "./SearchBar.vue";
 import TopBar from "./TopBar.vue";
+import DropDownNav from "./DropDownNav.vue";
 
 @Component({
-	components: { Logo, Input, TopBar },
+	components: { Logo, Input, TopBar, DropDownNav },
 })
 export default class NavBar extends Vue {
 	public navOptions = [
