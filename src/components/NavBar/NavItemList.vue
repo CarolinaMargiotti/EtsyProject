@@ -1,13 +1,12 @@
 <template>
 	<section>
 		<div class="flex justify-start">
-			<div
-				:class="`mr-5 w-80 pr-2 border-r-2 border-black border-solid `"
-			>
+			<div :class="`mr-5 w-80 pr-2 border-r-2 border-black border-solid`">
 				<component
 					v-for="(nav, index) in itemArrays.subcategories"
 					:key="index"
 					class="px-2 hover:bg-gray-400"
+					:class="{ 'bg-gray-400': shouldHighlightFirst(index) }"
 					:is="navTypes[nav.type]"
 					v-bind="{
 						text: nav.text,
@@ -59,6 +58,7 @@ export default class NavItemList extends Vue {
 	public readonly itemArrays!: CategoriesList;
 
 	public subcategories: CategoriesList | null = null;
+	public didHover: boolean = false;
 
 	public navTypes: {
 		link: string;
@@ -72,6 +72,11 @@ export default class NavItemList extends Vue {
 		normal: "NormalButton",
 	};
 
+	mounted() {
+		//@ts-ignore
+		this.subcategories = this.itemArrays.subcategories[1].subcategories;
+	}
+
 	public divideClass(index: number) {
 		return this.divide && index == 0
 			? "border-r-2 border-black border-solid "
@@ -79,7 +84,12 @@ export default class NavItemList extends Vue {
 	}
 
 	public hoveredCategory(nav: any) {
+		this.didHover = true;
 		this.subcategories = nav.subcategories;
+	}
+
+	public shouldHighlightFirst(index: number) {
+		return index === 1 && !this.didHover;
 	}
 }
 </script>
