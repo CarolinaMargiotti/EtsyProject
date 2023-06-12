@@ -74,6 +74,46 @@ export const Categories: CategoriesList[] = [
 							link: "#",
 							type: "heading",
 						},
+						{
+							text: "Sunglasses & Eyewear",
+							link: "#",
+							type: "heading",
+						},
+						{
+							text: "Belts & Wraps",
+							link: "#",
+							type: "heading",
+						},
+						{
+							text: "Keychains & Lanyards",
+							link: "#",
+							type: "heading",
+						},
+						{
+							text: "Comestic & Toiletry Bags",
+							link: "#",
+							type: "heading",
+						},
+						{
+							text: "Gloves & Mittens",
+							link: "#",
+							type: "heading",
+						},
+						{
+							text: "Umbrellas & Rain Accessories",
+							link: "#",
+							type: "heading",
+						},
+						{
+							text: "Wallets & Money Clips",
+							link: "#",
+							type: "heading",
+						},
+						{
+							text: "All Accessories",
+							link: "#",
+							type: "link",
+						},
 					],
 				],
 			},
@@ -113,5 +153,10 @@ export const Categories: CategoriesList[] = [
 				type: "link",
 			},
 		],
+	},
+	{
+		text: "Clothing & Shoes",
+		link: "#",
+		type: "link",
 	},
 ];
