@@ -1,18 +1,25 @@
 <template>
 	<header
-		class="pb-3 pt-2 px-headerPad border-b-2 border-solid border-b-lightGray relative bg-white"
+		class="pt-2 px-headerPad border-b-2 border-solid border-b-lightGray relative bg-white"
 		style="z-index: 2"
 	>
 		<TopBar />
 		<nav :class="`flex justify-between`">
-			<router-link
+			<div
 				v-for="(nav, index) in navOptions"
 				:key="index"
-				:to="nav.url"
-				>{{ nav.name }}</router-link
+				class="pb-3"
+				@mouseover="mouseHoverOnNavLink(index)"
+				@mouseleave="mouseOutOnNavLink()"
 			>
+				<router-link :to="nav.url">{{ nav.name }}</router-link>
+			</div>
 		</nav>
-		<DropDownNav :divide="true" title="All Jewelry & Acessories" />
+		<DropDownNav
+			:hoveredNav="hoveredNav"
+			:shouldShow="shouldShowDropDown"
+			:divide="true"
+		/>
 	</header>
 </template>
 <script lang="ts">
@@ -26,6 +33,22 @@ import DropDownNav from "./DropDownNav.vue";
 	components: { Logo, Input, TopBar, DropDownNav },
 })
 export default class NavBar extends Vue {
+	public hoveredNav: number = -1;
+
+	public mouseHoverOnNavLink(index: number) {
+		this.hoveredNav = index;
+	}
+
+	mouseOutOnNavLink() {
+		setTimeout(() => {
+			this.hoveredNav = -1;
+		}, 1000);
+	}
+
+	public get shouldShowDropDown() {
+		return this.hoveredNav != -1;
+	}
+
 	public navOptions = [
 		{
 			url: "/",

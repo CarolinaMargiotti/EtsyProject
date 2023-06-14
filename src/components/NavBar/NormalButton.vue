@@ -1,7 +1,7 @@
 <template>
 	<a
 		:href="link"
-		class="flex justify-between py-1.5"
+		class="flex justify-between py-1.5 hover:bg-gray-200 px-2"
 		@mouseover="hoveredButton"
 	>
 		<div>{{ text }}</div>

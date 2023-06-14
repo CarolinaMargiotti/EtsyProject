@@ -1,12 +1,13 @@
 <template>
 	<section>
 		<div class="flex justify-start">
-			<div :class="`mr-5 w-80 pr-2 border-r-2 border-black border-solid`">
+			<div
+				:class="`mr-5 py-4 w-96 pr-2 border-r-2 border-gray-200 border-solid h-full`"
+			>
 				<component
 					v-for="(nav, index) in itemArrays.subcategories"
 					:key="index"
-					class="px-2 hover:bg-gray-400"
-					:class="{ 'bg-gray-400': shouldHighlightFirst(index) }"
+					:class="{ 'bg-gray-200': shouldHighlightFirst(index) }"
 					:is="navTypes[nav.type]"
 					v-bind="{
 						text: nav.text,
@@ -16,7 +17,7 @@
 				></component>
 			</div>
 			<div
-				class="w-80"
+				class="w-80 py-4"
 				v-for="(subCategoryColumn, index) in subcategories"
 				:key="index"
 			>
@@ -25,14 +26,13 @@
 					:key="index"
 				>
 					<component
-						class="px-2 hover:bg-gray-400"
+						class="px-2"
 						:key="index"
 						:is="navTypes[subCategoriesItem.type]"
 						v-bind="{
 							text: subCategoriesItem.text,
 							link: subCategoriesItem.link,
 						}"
-						@hoveredButton="hoveredCategory(subCategoriesItem)"
 					></component>
 				</div>
 			</div>

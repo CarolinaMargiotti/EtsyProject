@@ -1,8 +1,8 @@
 <template>
 	<a
 		:href="link"
-		class="flex justify-between py-1.5"
-		@mouseover="hoveredButton"
+		class="flex justify-between py-3 hover:bg-gray-200 px-2"
+		@mouseenter="hoveredButton"
 	>
 		<div>{{ text }}</div>
 		<i class="fa-regular fa-chevron-right"></i>

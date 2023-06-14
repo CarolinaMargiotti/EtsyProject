@@ -1,11 +1,6 @@
 <template>
-	<div>
-		<a
-			class="font-bold linkButton py-3"
-			:href="link"
-			@mouseover="hoveredButton"
-			>{{ text }}
-		</a>
+	<div class="py-3 px-2 linkButton" @mouseover="hoveredButton">
+		<a class="font-bold" :href="link">{{ text }} </a>
 	</div>
 </template>
 <script lang="ts">
