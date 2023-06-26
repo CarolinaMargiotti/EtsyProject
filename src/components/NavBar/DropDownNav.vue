@@ -1,6 +1,6 @@
 <template>
 	<section
-		v-if="isDropDownVisible"
+		v-if="isDropDownVisible && navOptions.subcategories"
 		class="shadow-2xl rounded w-4/6 absolute px-4"
 		@mouseenter="dropDownHoverState = true"
 		@mouseleave="dropDownHoverState = false"
@@ -29,6 +29,8 @@ export default class DropDownNav extends Vue {
 		return this.shouldShow || this.dropDownHoverState;
 	}
 
-	public navOptions = Categories[0];
+	public get navOptions() {
+		return Categories[this.hoveredNav];
+	}
 }
 </script>
