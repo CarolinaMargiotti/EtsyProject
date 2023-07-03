@@ -16,11 +16,13 @@
 			</div>
 		</nav>
 		<hr
-			class="h-1 bg-black relative"
+			class="bg-black relative"
 			:style="{
 				left: offsetValue + 'px',
 				width: hoveredNavWidth + 'px',
 				transition: 'all 0.5s',
+				top: '0.10rem',
+				height: '0.20rem',
 			}"
 		/>
 		<DropDownNav
