@@ -15,9 +15,17 @@
 				<router-link :to="nav.url">{{ nav.name }}</router-link>
 			</div>
 		</nav>
+		<hr
+			class="h-1 bg-black relative"
+			:style="{
+				left: offsetValue + 'px',
+				width: hoveredNavWidth + 'px',
+				transition: 'all 0.5s',
+			}"
+		/>
 		<DropDownNav
 			:hoveredNav="hoveredNav"
-			:shouldShow="shouldShowDropDown"
+			:shouldShow="isHovering"
 			:divide="true"
 		/>
 	</header>
@@ -33,20 +41,39 @@ import DropDownNav from "./DropDownNav.vue";
 	components: { Logo, Input, TopBar, DropDownNav },
 })
 export default class NavBar extends Vue {
-	public hoveredNav: number = -1;
+	public isHovering: boolean = false;
+	public hoveredNav: number = 0;
 
-	public mouseHoverOnNavLink(index: number) {
+	public mouseHoverOnNavLink(index: number): void {
+		this.isHovering = true;
 		this.hoveredNav = index;
 	}
 
-	mouseOutOnNavLink() {
+	mouseOutOnNavLink(): void {
 		setTimeout(() => {
-			this.hoveredNav = -1;
-		}, 1000);
+			this.isHovering = false;
+		}, 2000);
 	}
 
-	public get shouldShowDropDown() {
-		return this.hoveredNav != -1;
+	public get navWidths(): number[] {
+		return this.navOptions.map((item) => {
+			return item.name.length * 7.2;
+		});
+	}
+
+	public get hoveredNavWidth(): number {
+		if (!this.isHovering) return 0;
+		return this.navWidths[this.hoveredNav];
+	}
+
+	public get offsetValue(): number {
+		const offsetNavWidths = this.navWidths.slice(0, this.hoveredNav);
+
+		let summed = 0;
+		offsetNavWidths.forEach((value, index) => {
+			summed += value + (60 - 1.18 * index);
+		});
+		return summed;
 	}
 
 	public navOptions = [

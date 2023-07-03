@@ -1,6 +1,6 @@
 <template>
 	<section
-		v-if="isDropDownVisible && navOptions.subcategories"
+		v-if="isDropDownVisible && navOptions?.subcategories"
 		class="shadow-2xl rounded w-4/6 absolute px-4"
 		@mouseenter="dropDownHoverState = true"
 		@mouseleave="dropDownHoverState = false"
