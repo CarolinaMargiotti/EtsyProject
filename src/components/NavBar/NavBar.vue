@@ -6,13 +6,13 @@
 		<TopBar />
 		<nav :class="`flex justify-between`">
 			<div
-				v-for="(nav, index) in navOptions"
+				v-for="(nav, index) in categories"
 				:key="index"
-				class="pb-3"
+				class="pb-3 navbar"
 				@mouseover="mouseHoverOnNavLink(index)"
 				@mouseleave="mouseOutOnNavLink()"
 			>
-				<router-link :to="nav.url">{{ nav.name }}</router-link>
+				<router-link :to="nav.link">{{ nav.text }}</router-link>
 			</div>
 		</nav>
 		<hr
@@ -38,6 +38,8 @@ import Logo from "../Logo.vue";
 import Input from "./SearchBar.vue";
 import TopBar from "./TopBar.vue";
 import DropDownNav from "./DropDownNav.vue";
+import { Categories } from "@/models/Categories";
+import { CategoriesList } from "@/models/ICategories";
 
 @Component({
 	components: { Logo, Input, TopBar, DropDownNav },
@@ -45,6 +47,7 @@ import DropDownNav from "./DropDownNav.vue";
 export default class NavBar extends Vue {
 	public isHovering: boolean = false;
 	public hoveredNav: number = 0;
+	public categories: CategoriesList[] = Categories;
 
 	public mouseHoverOnNavLink(index: number): void {
 		this.isHovering = true;
@@ -58,9 +61,12 @@ export default class NavBar extends Vue {
 	}
 
 	public get navWidths(): number[] {
-		return this.navOptions.map((item) => {
-			return item.name.length * 7.2;
-		});
+		const navs: HTMLCollection = document.getElementsByClassName("navbar");
+		let widthSizes: number[] = [];
+		for (let index = 0; index < navs.length; index++) {
+			widthSizes.push(navs[index].clientWidth);
+		}
+		return widthSizes;
 	}
 
 	public get hoveredNavWidth(): number {
@@ -71,46 +77,11 @@ export default class NavBar extends Vue {
 	public get offsetValue(): number {
 		const offsetNavWidths = this.navWidths.slice(0, this.hoveredNav);
 
-		let summed = 0;
+		let summed: number = 0;
 		offsetNavWidths.forEach((value, index) => {
-			summed += value + (60 - 1.18 * index);
+			summed += value + 58;
 		});
 		return summed;
 	}
-
-	public navOptions = [
-		{
-			url: "/",
-			name: "Jewelry & Accessories",
-		},
-		{
-			url: "/",
-			name: "Clothing & Shoes",
-		},
-		{
-			url: "/",
-			name: "Home & Living",
-		},
-		{
-			url: "/",
-			name: "Wedding & Party",
-		},
-		{
-			url: "/",
-			name: "Toys & Entertainment",
-		},
-		{
-			url: "/",
-			name: "Art & Collectibles",
-		},
-		{
-			url: "/",
-			name: "Craft Supplies & Tools",
-		},
-		{
-			url: "/",
-			name: "Vintage",
-		},
-	];
 }
 </script>
