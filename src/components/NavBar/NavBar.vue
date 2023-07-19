@@ -4,7 +4,7 @@
 		style="z-index: 2"
 	>
 		<TopBar />
-		<nav :class="`flex justify-between`">
+		<nav id="navCollection" :class="`flex justify-between`">
 			<div
 				v-for="(nav, index) in categories"
 				:key="index"
@@ -69,6 +69,25 @@ export default class NavBar extends Vue {
 		return widthSizes;
 	}
 
+	public calculateSpanDividerWidth(): number {
+		const navCollection: HTMLElement | null =
+			document.getElementById("navCollection");
+		if (!navCollection?.clientWidth) return 58;
+
+		const totalNavbarWidth = navCollection?.clientWidth;
+		const totalNavsWidth = this.navWidths.reduce(
+			(acc, currentValue) => acc + currentValue,
+			0
+		);
+
+		const spanDividersTotalWidth: number =
+			totalNavbarWidth - totalNavsWidth;
+		const spanDividerWidth: number =
+			spanDividersTotalWidth / (this.navWidths.length - 1);
+
+		return spanDividerWidth;
+	}
+
 	public get hoveredNavWidth(): number {
 		if (!this.isHovering) return 0;
 		return this.navWidths[this.hoveredNav];
@@ -76,10 +95,11 @@ export default class NavBar extends Vue {
 
 	public get offsetValue(): number {
 		const offsetNavWidths = this.navWidths.slice(0, this.hoveredNav);
+		const spanDividerWidth = this.calculateSpanDividerWidth();
 
 		let summed: number = 0;
 		offsetNavWidths.forEach((value, index) => {
-			summed += value + 58;
+			summed += value + spanDividerWidth;
 		});
 		return summed;
 	}
