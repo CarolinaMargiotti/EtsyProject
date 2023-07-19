@@ -12,6 +12,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import NavItemList from "./NavItemList.vue";
 import { Categories } from "@/models/Categories";
+import { CategoriesList } from "@/models/ICategories";
 
 @Component({
 	components: { NavItemList },
@@ -25,11 +26,11 @@ export default class DropDownNav extends Vue {
 
 	public dropDownHoverState: boolean = false;
 
-	public get isDropDownVisible() {
+	public get isDropDownVisible(): boolean {
 		return this.shouldShow || this.dropDownHoverState;
 	}
 
-	public get navOptions() {
+	public get navOptions(): CategoriesList {
 		return Categories[this.hoveredNav];
 	}
 }

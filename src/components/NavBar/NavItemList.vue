@@ -72,23 +72,23 @@ export default class NavItemList extends Vue {
 		normal: "NormalButton",
 	};
 
-	mounted() {
+	mounted(): void {
 		//@ts-ignore
 		this.subcategories = this.itemArrays.subcategories[1].subcategories;
 	}
 
-	public divideClass(index: number) {
+	public divideClass(index: number): string {
 		return this.divide && index == 0
 			? "border-r-2 border-black border-solid "
 			: "";
 	}
 
-	public hoveredCategory(nav: any) {
+	public hoveredCategory(nav: any): void {
 		this.didHover = true;
 		this.subcategories = nav.subcategories;
 	}
 
-	public shouldHighlightFirst(index: number) {
+	public shouldHighlightFirst(index: number): boolean {
 		return index === 1 && !this.didHover;
 	}
 }
