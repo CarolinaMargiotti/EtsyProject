@@ -19,7 +19,7 @@
 			class="bg-black relative"
 			:style="{
 				left: offsetValue + 'px',
-				width: hoveredNavWidth + 'px',
+				width: currentActiveNavWidth + 'px',
 				transition: 'all 0.5s',
 				top: '0.10rem',
 				height: '0.20rem',
@@ -29,6 +29,7 @@
 			:hoveredNav="hoveredNav"
 			:shouldShow="isHovering"
 			:divide="true"
+			@dropdownHoverChanged="isDropdownHoveringChanged"
 		/>
 	</header>
 </template>
@@ -47,31 +48,55 @@ import { CategoriesList } from "@/models/ICategories";
 export default class NavBar extends Vue {
 	public isHovering: boolean = false;
 	public hoveredNav: number = 0;
+	public timeoutOff: boolean = false;
 	public categories: CategoriesList[] = Categories;
 
-	public mouseHoverOnNavLink(index: number): void {
-		this.isHovering = true;
-		this.hoveredNav = index;
+	public isDropdownHovering: boolean = false;
+
+	public offsetValue: number = 0;
+	public currentActiveNavWidth: number = 0;
+
+	public navWidths: number[] = [];
+
+	mounted(): void {
+		this.calculateNavsWidths();
+		this.updateBars();
 	}
 
-	mouseOutOnNavLink(): void {
-		setTimeout(() => {
-			this.isHovering = false;
-		}, 2000);
-	}
-
-	public get navWidths(): number[] {
+	public calculateNavsWidths(): void {
 		const navs: HTMLCollection = document.getElementsByClassName("navbar");
 		let widthSizes: number[] = [];
 		for (let index = 0; index < navs.length; index++) {
 			widthSizes.push(navs[index].clientWidth);
 		}
-		return widthSizes;
+		this.navWidths = widthSizes;
+	}
+
+	public isDropdownHoveringChanged(value: boolean): void {
+		this.isDropdownHovering = value;
+		this.updateHoveredNavWidth();
+	}
+
+	public mouseHoverOnNavLink(index: number): void {
+		this.timeoutOff = false;
+		this.isHovering = true;
+		this.hoveredNav = index;
+		this.updateBars();
+	}
+
+	public mouseOutOnNavLink(): void {
+		this.isHovering = false;
+		this.currentActiveNavWidth = 0;
+
+		setTimeout(() => {
+			this.timeoutOff = true;
+		}, 2000);
 	}
 
 	public calculateSpanDividerWidth(): number {
 		const navCollection: HTMLElement | null =
 			document.getElementById("navCollection");
+
 		if (!navCollection?.clientWidth) return 58;
 
 		const totalNavbarWidth = navCollection?.clientWidth;
@@ -88,12 +113,20 @@ export default class NavBar extends Vue {
 		return spanDividerWidth;
 	}
 
-	public get hoveredNavWidth(): number {
-		if (!this.isHovering) return 0;
-		return this.navWidths[this.hoveredNav];
+	public updateBars(): void {
+		this.updateHoveredNavWidth();
+		this.updateOffsetValue();
 	}
 
-	public get offsetValue(): number {
+	public updateHoveredNavWidth(): void {
+		if (!this.isHovering && !this.isDropdownHovering) {
+			this.currentActiveNavWidth = 0;
+			return;
+		}
+		this.currentActiveNavWidth = this.navWidths[this.hoveredNav];
+	}
+
+	public updateOffsetValue(): void {
 		const offsetNavWidths = this.navWidths.slice(0, this.hoveredNav);
 		const spanDividerWidth = this.calculateSpanDividerWidth();
 
@@ -101,7 +134,7 @@ export default class NavBar extends Vue {
 		offsetNavWidths.forEach((value, index) => {
 			summed += value + spanDividerWidth;
 		});
-		return summed;
+		this.offsetValue = summed;
 	}
 }
 </script>
