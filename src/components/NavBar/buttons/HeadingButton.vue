@@ -1,5 +1,6 @@
 <template>
 	<a
+		ref="link"
 		:href="link"
 		class="flex justify-between pb-2 text-sm font-semibold hover:bg-gray-200 px-2"
 		@mouseover="hoveredButton"

@@ -6,6 +6,7 @@
 			>
 				<component
 					v-for="(nav, index) in itemArrays.subcategories"
+					ref="mainSubcategories"
 					:key="index"
 					:class="{ 'bg-gray-200': shouldHighlightFirst(index) }"
 					:is="navTypes[nav.type]"
@@ -41,10 +42,10 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import LinkButton from "./LinkButton.vue";
-import ArrowButton from "./ArrowButton.vue";
-import HeadingButton from "./HeadingButton.vue";
-import NormalButton from "./NormalButton.vue";
+import LinkButton from "./buttons/LinkButton.vue";
+import ArrowButton from "./buttons/ArrowButton.vue";
+import HeadingButton from "./buttons/HeadingButton.vue";
+import NormalButton from "./buttons/NormalButton.vue";
 import { CategoriesList } from "@/models/ICategories";
 
 @Component({
