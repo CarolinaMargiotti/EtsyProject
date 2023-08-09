@@ -1,7 +1,7 @@
-import { NavItem } from "../../ICategories";
+import { CategoriesList } from "../../ICategories";
 
-export const accessoriesCategories: NavItem[][] = [
-	[
+export const accessoriesCategories: CategoriesList = {
+	firstColumn: [
 		{
 			text: "Hats & Caps",
 			link: "#",
@@ -53,7 +53,7 @@ export const accessoriesCategories: NavItem[][] = [
 			type: "normal",
 		},
 	],
-	[
+	secondColumn: [
 		{
 			text: "Sunglasses & Eyewear",
 			link: "#",
@@ -100,4 +100,4 @@ export const accessoriesCategories: NavItem[][] = [
 			type: "link",
 		},
 	],
-];
+};

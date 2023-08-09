@@ -5,17 +5,17 @@
 		@mouseenter="hoveringDropdownMouseEnter"
 		@mouseleave="hoveringDropdownMouseLeave"
 	>
-		<NavItemList :divide="true" :itemArrays="navOptions" />
+		<NavCategoriesList :divide="true" :itemArrays="navOptions" />
 	</section>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
-import NavItemList from "./NavItemList.vue";
+import NavCategoriesList from "./NavCategoriesList.vue";
 import { Categories } from "@/models/Categories";
-import { CategoriesList } from "@/models/ICategories";
+import { NavCategories } from "@/models/ICategories";
 
 @Component({
-	components: { NavItemList },
+	components: { NavCategoriesList },
 })
 export default class DropDownNav extends Vue {
 	@Prop()
@@ -34,7 +34,7 @@ export default class DropDownNav extends Vue {
 		);
 	}
 
-	public get navOptions(): CategoriesList {
+	public get navOptions(): NavCategories {
 		return Categories[this.hoveredNav];
 	}
 

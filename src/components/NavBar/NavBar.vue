@@ -38,9 +38,9 @@ import { Component, Vue } from "vue-property-decorator";
 import Logo from "../Logo.vue";
 import Input from "./SearchBar.vue";
 import TopBar from "./TopBar.vue";
-import DropDownNav from "./DropDownNav.vue";
+import DropDownNav from "./dropdown/DropDownNav.vue";
 import { Categories } from "@/models/Categories";
-import { CategoriesList } from "@/models/ICategories";
+import { NavCategories } from "@/models/ICategories";
 
 @Component({
 	components: { Logo, Input, TopBar, DropDownNav },
@@ -49,7 +49,7 @@ export default class NavBar extends Vue {
 	public isHovering: boolean = false;
 	public hoveredNav: number = 0;
 	public timeoutOff: boolean = false;
-	public categories: CategoriesList[] = Categories;
+	public categories: NavCategories[] = Categories;
 
 	public isDropdownHovering: boolean = false;
 

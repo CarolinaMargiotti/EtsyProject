@@ -1,10 +1,10 @@
-import { CategoriesList } from "@/models/ICategories";
+import { NavCategories } from "@/models/ICategories";
 import { womensCategories } from "./womensCategories";
 import { mensCategories } from "./mensCategories";
 import { kidsAndBabysCategories } from "./kidsAndBabysCategories";
 import { bagsAndPurses } from "./bagsAndPurses";
 
-export const clothingAndShoesCategories: CategoriesList = {
+export const clothingAndShoesCategories: NavCategories = {
 	text: "Clothing & Shoes",
 	link: "#",
 	type: "link",
@@ -18,25 +18,25 @@ export const clothingAndShoesCategories: CategoriesList = {
 			text: "Women's",
 			link: "#",
 			type: "arrow",
-			subcategories: womensCategories,
+			...womensCategories,
 		},
 		{
 			text: "Men's",
 			link: "#",
 			type: "arrow",
-			subcategories: mensCategories,
+			...mensCategories,
 		},
 		{
 			text: "Kid's & Baby",
 			link: "#",
 			type: "arrow",
-			subcategories: kidsAndBabysCategories,
+			...kidsAndBabysCategories,
 		},
 		{
 			text: "Bags & Purses",
 			link: "#",
 			type: "arrow",
-			subcategories: bagsAndPurses,
+			...bagsAndPurses,
 		},
 	],
 };

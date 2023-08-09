@@ -1,8 +1,8 @@
-import { CategoriesList } from "./ICategories";
+import { NavCategories } from "./ICategories";
 import { jewelryAndAccessoriesCategories } from "./subcategories/jewelryAndAccessoriesCategories";
 import { clothingAndShoesCategories } from "./subcategories/clothingAndShoesCategories";
 
-export const Categories: CategoriesList[] = [
+export const Categories: NavCategories[] = [
 	{
 		...jewelryAndAccessoriesCategories,
 	},

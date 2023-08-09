@@ -1,4 +1,4 @@
-import { CategoriesList } from "../../ICategories";
+import { NavCategories } from "../../ICategories";
 import { accessoriesCategories } from "./accessoriesCategories";
 import { bagsAndPursesCategories } from "./bagsAndPursesCategories";
 import { necklacesCategories } from "./necklacesCategories";
@@ -7,7 +7,7 @@ import { earringsCategories } from "./earringsCategories";
 import { braceletsCategories } from "./braceletsCategories";
 import { bodyJewelryCategories } from "./bodyJewelryCategories";
 
-export const jewelryAndAccessoriesCategories: CategoriesList = {
+export const jewelryAndAccessoriesCategories: NavCategories = {
 	text: "Jewelry & Accessories",
 	link: "#",
 	type: "link",
@@ -21,43 +21,43 @@ export const jewelryAndAccessoriesCategories: CategoriesList = {
 			text: "Accessories",
 			link: "#",
 			type: "arrow",
-			subcategories: accessoriesCategories,
+			...accessoriesCategories,
 		},
 		{
 			text: "Bags & Purses",
 			link: "#",
 			type: "arrow",
-			subcategories: bagsAndPursesCategories,
+			...bagsAndPursesCategories,
 		},
 		{
 			text: "Necklaces",
 			link: "#",
 			type: "arrow",
-			subcategories: necklacesCategories,
+			...necklacesCategories,
 		},
 		{
 			text: "Rings",
 			link: "#",
 			type: "arrow",
-			subcategories: ringsCategories,
+			...ringsCategories,
 		},
 		{
 			text: "Earrings",
 			link: "#",
 			type: "arrow",
-			subcategories: earringsCategories,
+			...earringsCategories,
 		},
 		{
 			text: "Bracelets",
 			link: "#",
 			type: "arrow",
-			subcategories: braceletsCategories,
+			...braceletsCategories,
 		},
 		{
 			text: "Body Jewelry",
 			link: "#",
 			type: "arrow",
-			subcategories: bodyJewelryCategories,
+			...bodyJewelryCategories,
 		},
 		{
 			text: "All Jewelry",

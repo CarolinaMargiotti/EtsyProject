@@ -4,6 +4,13 @@ export interface NavItem {
 	type: string;
 }
 
-export interface CategoriesList extends NavItem {
-	subcategories?: CategoriesList | CategoriesList[] | CategoriesList[][];
+export interface CategoriesList {
+	firstColumn?: NavItem[];
+	secondColumn?: NavItem[];
+}
+
+export type NavList = NavItem & CategoriesList;
+
+export interface NavCategories extends NavItem {
+	subcategories?: NavList[];
 }
