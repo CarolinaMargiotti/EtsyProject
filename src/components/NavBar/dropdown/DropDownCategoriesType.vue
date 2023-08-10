@@ -4,7 +4,7 @@
 			<div
 				:class="`mr-5 py-4 w-96 pr-2 border-r-2 border-gray-200 border-solid h-full`"
 			>
-				<DropdownComponent
+				<DropdownButton
 					v-for="(nav, index) in itemArrays.subcategories"
 					ref="mainSubcategories"
 					:key="index"
@@ -21,7 +21,7 @@
 						) in subcategories?.firstColumn"
 						:key="index"
 					>
-						<DropdownComponent :item="subCategoryColumn" />
+						<DropdownButton :item="subCategoryColumn" />
 					</div>
 				</div>
 				<div class="w-80">
@@ -31,7 +31,7 @@
 						) in subcategories?.secondColumn"
 						:key="index"
 					>
-						<DropdownComponent :item="subCategoryColumn" />
+						<DropdownButton :item="subCategoryColumn" />
 					</div>
 				</div>
 			</div>
@@ -40,31 +40,38 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { NavCategories, CategoriesList, NavList } from "@/models/ICategories";
-import DropdownComponent from "./DropdownComponent.vue";
+import {
+	DropDownCategoriesTypeInterface,
+	Subcategories,
+} from "@/models/ICategories";
+import DropdownButton from "./DropdownButton.vue";
 
 @Component({
-	components: { DropdownComponent },
+	components: { DropdownButton },
 })
-export default class NavCategoriesList extends Vue {
+export default class DropDownCategoriesType extends Vue {
 	@Prop()
-	public readonly divide!: boolean;
+	public readonly itemArrays!: DropDownCategoriesTypeInterface;
 
-	@Prop()
-	public readonly itemArrays!: NavCategories;
-
-	public subcategories: CategoriesList | null = null;
+	public subcategories: Subcategories = {
+		link: "",
+		text: "",
+		type: "",
+		firstColumn: [],
+	};
 	public didHover: boolean = false;
 
 	mounted(): void {
-		//@ts-ignore
-		this.subcategories = this.itemArrays.subcategories[1];
+		this.subcategories = (this.itemArrays?.subcategories?.[1] || {
+			link: "",
+			text: "",
+			type: "",
+			firstColumn: [],
+		}) as Subcategories;
 	}
 
-	public hoveredCategory(nav: NavList): void {
+	public hoveredCategory(nav: Subcategories): void {
 		this.didHover = true;
-		console.log(nav);
-
 		this.subcategories = nav;
 	}
 

@@ -25,6 +25,7 @@
 				height: '0.20rem',
 			}"
 		/>
+		{{ hoveredNav }}
 		<DropDownNav
 			:hoveredNav="hoveredNav"
 			:shouldShow="isHovering"
@@ -40,7 +41,10 @@ import Input from "./SearchBar.vue";
 import TopBar from "./TopBar.vue";
 import DropDownNav from "./dropdown/DropDownNav.vue";
 import { Categories } from "@/models/Categories";
-import { NavCategories } from "@/models/ICategories";
+import {
+	DropDownCategoriesTypeInterface,
+	DropDownThreeListsInterface,
+} from "@/models/ICategories";
 
 @Component({
 	components: { Logo, Input, TopBar, DropDownNav },
@@ -49,7 +53,9 @@ export default class NavBar extends Vue {
 	public isHovering: boolean = false;
 	public hoveredNav: number = 0;
 	public timeoutOff: boolean = false;
-	public categories: NavCategories[] = Categories;
+	public categories:
+		| DropDownCategoriesTypeInterface[]
+		| DropDownThreeListsInterface[] = Categories;
 
 	public isDropdownHovering: boolean = false;
 

@@ -1,6 +1,9 @@
-import { CategoriesList } from "../../ICategories";
+import { Subcategories } from "../../ICategories";
 
-export const accessoriesCategories: CategoriesList = {
+export const accessoriesCategories: Subcategories = {
+	text: "Accessories",
+	link: "#",
+	type: "arrow",
 	firstColumn: [
 		{
 			text: "Hats & Caps",

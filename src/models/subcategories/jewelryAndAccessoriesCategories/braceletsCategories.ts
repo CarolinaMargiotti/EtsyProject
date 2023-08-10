@@ -1,7 +1,10 @@
-import { NavItem } from "../../ICategories";
+import { Subcategories } from "../../ICategories";
 
-export const braceletsCategories: NavItem[][] = [
-	[
+export const braceletsCategories: Subcategories = {
+	text: "Bracelets",
+	link: "#",
+	type: "arrow",
+	firstColumn: [
 		{
 			text: "Beaded Bracelets",
 			link: "#",
@@ -23,7 +26,7 @@ export const braceletsCategories: NavItem[][] = [
 			type: "heading",
 		},
 	],
-	[
+	secondColumn: [
 		{
 			text: "Cuff Bracelets",
 			link: "#",
@@ -40,4 +43,4 @@ export const braceletsCategories: NavItem[][] = [
 			type: "link",
 		},
 	],
-];
+};

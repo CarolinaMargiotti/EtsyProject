@@ -1,21 +1,31 @@
 <template>
 	<section
-		v-if="isDropDownVisible && navOptions?.subcategories"
+		v-if="isDropDownVisible && doesSubCategoriesExists"
 		class="shadow-2xl rounded w-4/6 absolute px-4"
 		@mouseenter="hoveringDropdownMouseEnter"
 		@mouseleave="hoveringDropdownMouseLeave"
 	>
-		<NavCategoriesList :divide="true" :itemArrays="navOptions" />
+		<component
+			v-if="navOptions.dropdownType"
+			:is="navOptions.dropdownType"
+			v-bind="{
+				itemArrays: navOptions,
+			}"
+		></component>
 	</section>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
-import NavCategoriesList from "./NavCategoriesList.vue";
+import DropDownCategoriesType from "./DropDownCategoriesType.vue";
+import DropDownThreeLists from "./DropDownThreeListsType.vue";
 import { Categories } from "@/models/Categories";
-import { NavCategories } from "@/models/ICategories";
+import {
+	DropDownCategoriesTypeInterface,
+	DropDownThreeListsInterface,
+} from "@/models/ICategories";
 
 @Component({
-	components: { NavCategoriesList },
+	components: { DropDownCategoriesType, DropDownThreeLists },
 })
 export default class DropDownNav extends Vue {
 	@Prop()
@@ -34,7 +44,9 @@ export default class DropDownNav extends Vue {
 		);
 	}
 
-	public get navOptions(): NavCategories {
+	public get navOptions():
+		| DropDownCategoriesTypeInterface
+		| DropDownThreeListsInterface {
 		return Categories[this.hoveredNav];
 	}
 
@@ -46,6 +58,28 @@ export default class DropDownNav extends Vue {
 	public hoveringDropdownMouseLeave(): void {
 		this.dropDownHoverState = false;
 		this.$emit("dropdownHoverChanged", false);
+	}
+
+	public get doesSubCategoriesExists(): boolean {
+		const doesCategoriesHaveSubcategories: boolean = !!(
+			this.navOptions as DropDownCategoriesTypeInterface
+		)?.subcategories;
+
+		const doesThreeColumnsHaveAtleastOneColumn: boolean = !!(
+			this.navOptions as DropDownThreeListsInterface
+		)?.firstColumn;
+
+		console.log(this.navOptions);
+
+		console.log(
+			doesCategoriesHaveSubcategories,
+			doesThreeColumnsHaveAtleastOneColumn
+		);
+
+		return (
+			!!doesCategoriesHaveSubcategories ||
+			!!doesThreeColumnsHaveAtleastOneColumn
+		);
 	}
 
 	@Watch("shouldShow")

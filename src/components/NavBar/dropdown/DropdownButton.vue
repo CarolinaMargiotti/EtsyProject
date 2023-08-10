@@ -1,16 +1,14 @@
 <template>
-	<div>
-		<component
-			class="px-2"
-			:class="{ 'bg-gray-200': shouldBeActive }"
-			:is="navTypes[item.type]"
-			v-bind="{
-				text: item.text,
-				link: item.link,
-			}"
-			@hoveredButton="componentHovered"
-		></component>
-	</div>
+	<component
+		class="px-2"
+		:class="{ 'bg-gray-200': shouldBeActive }"
+		:is="navTypes[item.type]"
+		v-bind="{
+			text: item.text,
+			link: item.link,
+		}"
+		@hoveredButton="componentHovered"
+	></component>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";

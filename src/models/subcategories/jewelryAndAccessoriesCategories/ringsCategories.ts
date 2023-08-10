@@ -1,7 +1,10 @@
-import { NavItem } from "../../ICategories";
+import { Subcategories } from "../../ICategories";
 
-export const ringsCategories: NavItem[][] = [
-	[
+export const ringsCategories: Subcategories = {
+	text: "Rings",
+	link: "#",
+	type: "arrow",
+	firstColumn: [
 		{
 			text: "Stackable Rings",
 			link: "#",
@@ -33,7 +36,7 @@ export const ringsCategories: NavItem[][] = [
 			type: "heading",
 		},
 	],
-	[
+	secondColumn: [
 		{
 			text: "Weddings & Engangement",
 			link: "#",
@@ -65,4 +68,4 @@ export const ringsCategories: NavItem[][] = [
 			type: "link",
 		},
 	],
-];
+};

@@ -4,13 +4,19 @@ export interface NavItem {
 	type: string;
 }
 
-export interface CategoriesList {
+export interface Subcategories extends NavItem {
 	firstColumn?: NavItem[];
 	secondColumn?: NavItem[];
 }
 
-export type NavList = NavItem & CategoriesList;
+export interface DropDownCategoriesTypeInterface extends NavItem {
+	dropdownType: string;
+	subcategories?: Subcategories[];
+}
 
-export interface NavCategories extends NavItem {
-	subcategories?: NavList[];
+export interface DropDownThreeListsInterface extends NavItem {
+	dropdownType: string;
+	firstColumn?: NavItem[];
+	secondColumn?: NavItem[];
+	thirdColumn?: NavItem[];
 }
