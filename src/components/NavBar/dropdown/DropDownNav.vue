@@ -69,13 +69,6 @@ export default class DropDownNav extends Vue {
 			this.navOptions as DropDownThreeListsInterface
 		)?.firstColumn;
 
-		console.log(this.navOptions);
-
-		console.log(
-			doesCategoriesHaveSubcategories,
-			doesThreeColumnsHaveAtleastOneColumn
-		);
-
 		return (
 			!!doesCategoriesHaveSubcategories ||
 			!!doesThreeColumnsHaveAtleastOneColumn

@@ -14,26 +14,8 @@
 				/>
 			</div>
 			<div class="flex py-4">
-				<div class="w-80">
-					<div
-						v-for="(
-							subCategoryColumn, index
-						) in subcategories?.firstColumn"
-						:key="index"
-					>
-						<DropdownButton :item="subCategoryColumn" />
-					</div>
-				</div>
-				<div class="w-80">
-					<div
-						v-for="(
-							subCategoryColumn, index
-						) in subcategories?.secondColumn"
-						:key="index"
-					>
-						<DropdownButton :item="subCategoryColumn" />
-					</div>
-				</div>
+				<CategoryColumn :categories="subcategories?.firstColumn" />
+				<CategoryColumn :categories="subcategories?.secondColumn" />
 			</div>
 		</div>
 	</section>
@@ -45,9 +27,10 @@ import {
 	Subcategories,
 } from "@/models/ICategories";
 import DropdownButton from "./DropdownButton.vue";
+import CategoryColumn from "./CategoryColumn.vue";
 
 @Component({
-	components: { DropdownButton },
+	components: { DropdownButton, CategoryColumn },
 })
 export default class DropDownCategoriesType extends Vue {
 	@Prop()

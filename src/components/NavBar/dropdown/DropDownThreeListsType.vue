@@ -1,46 +1,19 @@
 <template>
 	<section>
 		<div class="flex py-4">
-			<div class="w-80">
-				<div
-					v-for="(
-						subCategoryColumn, index
-					) in itemArrays?.firstColumn"
-					:key="index"
-				>
-					<DropdownButton :item="subCategoryColumn" />
-				</div>
-			</div>
-			<div class="w-80">
-				<div
-					v-for="(
-						subCategoryColumn, index
-					) in itemArrays?.secondColumn"
-					:key="index"
-				>
-					<DropdownButton :item="subCategoryColumn" />
-				</div>
-			</div>
-			<div class="w-80">
-				<div
-					v-for="(
-						subCategoryColumn, index
-					) in itemArrays?.thirdColumn"
-					:key="index"
-				>
-					<DropdownButton :item="subCategoryColumn" />
-				</div>
-			</div>
+			<CategoryColumn :categories="itemArrays?.firstColumn" />
+			<CategoryColumn :categories="itemArrays?.secondColumn" />
+			<CategoryColumn :categories="itemArrays?.thirdColumn" />
 		</div>
 	</section>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { DropDownThreeListsInterface } from "@/models/ICategories";
-import DropdownButton from "./DropdownButton.vue";
+import CategoryColumn from "./CategoryColumn.vue";
 
 @Component({
-	components: { DropdownButton },
+	components: { CategoryColumn },
 })
 export default class DropDownThreeLists extends Vue {
 	@Prop()
