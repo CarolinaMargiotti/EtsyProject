@@ -25,7 +25,6 @@
 				height: '0.20rem',
 			}"
 		/>
-		{{ hoveredNav }}
 		<DropDownNav
 			:hoveredNav="hoveredNav"
 			:shouldShow="isHovering"
