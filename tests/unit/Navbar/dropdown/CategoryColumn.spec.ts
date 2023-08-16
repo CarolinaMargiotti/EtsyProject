@@ -3,6 +3,7 @@ import { Wrapper, WrapperArray, shallowMount } from "@vue/test-utils";
 import Vue from "vue";
 import { Categories } from "@/models/Categories";
 import DropdownButton from "@/components/NavBar/dropdown/DropdownButton.vue";
+import { DropDownCategoriesTypeInterface } from "@/models/ICategories";
 
 describe("Category Column", () => {
 	it("Should render correct amount of categories", () => {
@@ -15,8 +16,8 @@ describe("Category Column", () => {
 	function shallowMountComponent(): Wrapper<Vue> {
 		return shallowMount(CategoryColumn, {
 			propsData: {
-				//@ts-ignore
-				categories: Categories[0]?.subcategories?.[1]?.firstColumn,
+				categories: (Categories[0] as DropDownCategoriesTypeInterface)
+					?.subcategories?.[1]?.firstColumn,
 			},
 		});
 	}
