@@ -6,7 +6,7 @@
 		@mouseenter="hoveredButton"
 	>
 		<div>{{ text }}</div>
-		<i class="fa-regular fa-chevron-right"></i>
+		<i class="fas fa-chevron-right"></i>
 	</a>
 </template>
 <script lang="ts">

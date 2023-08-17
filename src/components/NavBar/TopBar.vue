@@ -32,7 +32,7 @@
 			<i class="ml-3 fa-solid text-gray-400 fa-caret-down"></i>
 		</div>
 		<div class="flex justify-center items-center w-20 iconHover">
-			<i class="h-5 far fa-heart"></i>
+			<i class="h-5 fas fa-cart-shopping"></i>
 		</div>
 	</section>
 </template>

@@ -8,7 +8,7 @@
 		<button
 			class="bg-lighterGray searchHover rounded-r-full px-5 p-2 border-2 border-l-0 border-black"
 		>
-			<i class="h-5 far fa-heart"></i>
+			<i class="h-5 fas fa-magnifying-glass"></i>
 		</button>
 	</div>
 </template>
