@@ -28,7 +28,6 @@
 		<DropDownNav
 			:hoveredNav="hoveredNav"
 			:shouldShow="isHovering"
-			:divide="true"
 			@dropdownHoverChanged="isDropdownHoveringChanged"
 		/>
 	</header>

@@ -2,11 +2,12 @@
 	<section>
 		<div class="flex justify-start">
 			<div
-				:class="`mr-5 py-4 w-96 pr-2 border-r-2 border-gray-200 border-solid h-full`"
+				:class="`mr-5 py-4 w-96  border-r-2 border-gray-200 border-solid h-full`"
 			>
 				<DropdownButton
 					v-for="(nav, index) in itemArrays.subcategories"
 					ref="mainSubcategories"
+					class="px-4"
 					:key="index"
 					:item="nav"
 					:shouldBeActive="shouldHighlightFirst(index)"
