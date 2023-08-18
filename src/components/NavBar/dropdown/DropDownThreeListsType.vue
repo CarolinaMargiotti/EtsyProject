@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<div class="flex py-4">
+		<div class="flex ml-4 py-4">
 			<CategoryColumn :categories="itemArrays?.firstColumn" />
 			<CategoryColumn :categories="itemArrays?.secondColumn" />
 			<CategoryColumn :categories="itemArrays?.thirdColumn" />
