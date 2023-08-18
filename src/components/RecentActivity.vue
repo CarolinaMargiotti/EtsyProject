@@ -14,6 +14,16 @@
 					<a href="#" class="underline">favorited items</a>
 				</div>
 			</div>
+			<div>
+				<DisplayItem />
+			</div>
 		</section>
 	</div>
 </template>
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import DisplayItem from "./DisplayItem.vue";
+
+@Component({ components: { DisplayItem } })
+export default class RecentActivity extends Vue {}
+</script>
