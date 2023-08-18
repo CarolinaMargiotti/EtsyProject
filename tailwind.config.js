@@ -11,6 +11,9 @@ module.exports = {
 				lighterGray: "#F3F3F3",
 				toastedYellow: "#FDEBD2",
 			},
+			colors: {
+				gray: "rgb(89, 89, 89)",
+			},
 			letterSpacing: {
 				regular: "1px",
 			},
