@@ -12,7 +12,7 @@ module.exports = {
 				toastedYellow: "#FDEBD2",
 			},
 			colors: {
-				gray: "rgb(89, 89, 89)",
+				muted: "rgb(89, 89, 89)",
 			},
 			letterSpacing: {
 				regular: "1px",

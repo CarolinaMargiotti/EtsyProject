@@ -8,7 +8,7 @@
 		<section class="px-headerPad">
 			<div class="flex justify-between items-end pb-6">
 				<label class="text-3xl font-bold">Your recent activity</label>
-				<div class="text-base text-gray">
+				<div class="text-base text-muted">
 					<a href="#" class="underline">Reecently viewed</a>
 					and
 					<a href="#" class="underline">favorited items</a>
