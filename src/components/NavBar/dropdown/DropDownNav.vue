@@ -1,9 +1,12 @@
 <template>
 	<section
 		v-if="isDropDownVisible && doesSubCategoriesExists"
-		class="shadow-2xl rounded w-4/6 absolute px-4"
+		class="drop-shadow-lg rounded w-4/6 absolute bg-white"
 		@mouseenter="hoveringDropdownMouseEnter"
 		@mouseleave="hoveringDropdownMouseLeave"
+		:style="{
+			marginTop: '2px',
+		}"
 	>
 		<component
 			v-if="navOptions.dropdownType"

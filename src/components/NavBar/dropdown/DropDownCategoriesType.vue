@@ -1,18 +1,23 @@
 <template>
 	<section>
-		<div class="flex justify-start">
-			<div
-				:class="`mr-5 py-4 w-96 pr-2 border-r-2 border-gray-200 border-solid h-full`"
-			>
+		<div class="flex h-full justify-start">
+			<div :class="`w-96`">
 				<DropdownButton
 					v-for="(nav, index) in itemArrays.subcategories"
 					ref="mainSubcategories"
+					class="px-4"
 					:key="index"
 					:item="nav"
 					:shouldBeActive="shouldHighlightFirst(index)"
 					@hoveredButton="hoveredCategory(nav)"
 				/>
 			</div>
+			<div
+				class="bg-gray-300 mr-2 h-96"
+				:style="{
+					width: '1.45px',
+				}"
+			></div>
 			<div class="flex py-4">
 				<CategoryColumn :categories="subcategories?.firstColumn" />
 				<CategoryColumn :categories="subcategories?.secondColumn" />
