@@ -6,7 +6,7 @@
 			</div>
 		</section>
 		<section class="px-headerPad">
-			<div class="flex justify-between items-end pb-6">
+			<div class="flex justify-between items-end pb-4">
 				<label class="text-3xl font-bold">Your recent activity</label>
 				<div class="text-base text-muted">
 					<a href="#" class="underline">Reecently viewed</a>
@@ -14,8 +14,18 @@
 					<a href="#" class="underline">favorited items</a>
 				</div>
 			</div>
-			<div>
-				<DisplayItem />
+
+			<div class="grid grid-cols-5 gap-3">
+				<DisplayItem :price="55" />
+				<DisplayItem :price="55" :discountedPrice="75" />
+				<DisplayItem :price="55" :isFavorite="true" />
+				<DisplayItem :price="55" :isFavorite="true" />
+				<DisplayItem :price="55" :isFavorite="true" />
+				<DisplayItem :price="55" />
+				<DisplayItem :price="55" :discountedPrice="75" />
+				<DisplayItem :price="55" :isFavorite="true" />
+				<DisplayItem :price="55" :isFavorite="true" />
+				<DisplayItem :price="55" :isFavorite="true" />
 			</div>
 		</section>
 	</div>
