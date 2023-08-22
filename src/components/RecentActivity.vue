@@ -16,16 +16,16 @@
 			</div>
 
 			<div class="grid grid-cols-5 gap-3">
-				<DisplayItem :price="55" />
-				<DisplayItem :price="55" :discountedPrice="75" />
-				<DisplayItem :price="55" :isFavorite="true" />
-				<DisplayItem :price="55" :isFavorite="true" />
-				<DisplayItem :price="55" :isFavorite="true" />
-				<DisplayItem :price="55" />
-				<DisplayItem :price="55" :discountedPrice="75" />
-				<DisplayItem :price="55" :isFavorite="true" />
-				<DisplayItem :price="55" :isFavorite="true" />
-				<DisplayItem :price="55" :isFavorite="true" />
+				<DisplayItem :id="1" :price="55" />
+				<DisplayItem :id="2" :price="55" :discountedPrice="75" />
+				<DisplayItem :id="3" :price="55" :isFavorite="true" />
+				<DisplayItem :id="4" :price="55" :isFavorite="true" />
+				<DisplayItem :id="5" :price="55" :isFavorite="true" />
+				<DisplayItem :id="6" :price="55" />
+				<DisplayItem :id="7" :price="55" :discountedPrice="75" />
+				<DisplayItem :id="8" :price="55" :isFavorite="true" />
+				<DisplayItem :id="9" :price="55" :isFavorite="true" />
+				<DisplayItem :id="10" :price="55" :isFavorite="true" />
 			</div>
 		</section>
 	</div>
