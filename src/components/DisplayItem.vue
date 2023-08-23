@@ -8,6 +8,7 @@
 			backgroundImage: `url(${require('../assets/img/placeholderItem.webp')})`,
 			backgroundSize: 'cover',
 			backgroundPosition: 'center',
+			zIndex: '1',
 		}"
 		@mouseleave="isItemHovered = false"
 		@mouseenter="isItemHovered = true"
@@ -27,15 +28,12 @@
 		</div>
 		<button
 			v-if="favoriteStatus || isItemHovered"
-			class="absolute bg-white right-0 py-1 px-2 mt-2 mr-2 rounded-full border border-gray-300"
-			:style="{
-				animation: 'hoverUp 0.3s',
-			}"
+			class="absolute bg-white right-0 py-1 px-2 mt-2 mr-2 rounded-full favoriteButton favoriteHoverUp"
 			@click="favoriteClicked"
 		>
 			<div v-show="favoriteStatus">
 				<i
-					:id="`favoriteButton${id}`"
+					:id="`favoriteHeart${id}`"
 					class="fas fa-heart text-red-700"
 				></i>
 			</div>
@@ -76,8 +74,10 @@ export default class DisplayItem extends Vue {
 	}
 
 	public addPulsateAnimationToIcon(): void {
-		const element = document.getElementById(`favoriteButton${this.id}`);
-		element?.classList.add("favoriteButton");
+		const element: HTMLElement | null = document.getElementById(
+			`favoriteHeart${this.id}`
+		);
+		element?.classList.add("favoriteHeart");
 	}
 
 	public get formattedPrice(): string {
@@ -90,6 +90,10 @@ export default class DisplayItem extends Vue {
 }
 </script>
 <style>
+.favoriteHoverUp {
+	animation: hoverUp 0.3s;
+}
+
 @keyframes hoverUp {
 	0% {
 		opacity: 0;
@@ -102,8 +106,31 @@ export default class DisplayItem extends Vue {
 	}
 }
 
-.favoriteButton {
+.favoriteHeart {
 	animation: pulsateHeart 0.2s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.favoritebutton {
+	z-index: 2;
+}
+
+.favoriteButton::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
+	width: 1.8rem;
+	height: 1.6rem;
+	transition: transform 0.2s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+	background-color: #e1e3df;
+	z-index: -1;
+}
+
+.favoriteButton:hover::before {
+	content: "";
+	transform: scale(117%);
+	animation: pulsateButton 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
 @keyframes pulsateHeart {
@@ -117,6 +144,20 @@ export default class DisplayItem extends Vue {
 
 	100% {
 		transform: scale(100%);
+	}
+}
+
+@keyframes pulsateButton {
+	0% {
+		transform: scale(100%);
+	}
+
+	80% {
+		transform: scale(120%);
+	}
+
+	100% {
+		transform: scale(117%);
 	}
 }
 </style>
