@@ -1,14 +1,9 @@
 <template>
 	<div
 		alt="placeholder item"
-		class="transition-shadow rounded-lg hover:shadow-2xl relative"
+		class="placeholderItem transition-shadow rounded-lg hover:shadow-2xl relative"
 		:style="{
-			height: '160px',
-			width: '255px',
 			backgroundImage: `url(${require('../assets/img/placeholderItem.webp')})`,
-			backgroundSize: 'cover',
-			backgroundPosition: 'center',
-			zIndex: '1',
 		}"
 		@mouseleave="isItemHovered = false"
 		@mouseenter="isItemHovered = true"
@@ -90,6 +85,14 @@ export default class DisplayItem extends Vue {
 }
 </script>
 <style>
+.placeholderItem {
+	height: 10rem;
+	width: 16rem;
+	background-size: cover;
+	background-position: center;
+	z-index: 1;
+}
+
 .favoriteHoverUp {
 	animation: hoverUp 0.3s;
 }
