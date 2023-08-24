@@ -1,7 +1,6 @@
 <template>
 	<header
-		class="pt-2 px-headerPad border-b-2 border-solid border-b-lightGray relative bg-white"
-		style="z-index: 2"
+		class="pt-2 px-headerPad border-b-2 border-solid border-b-lightGray relative bg-white z-10"
 	>
 		<TopBar />
 		<nav id="navCollection" :class="`flex justify-between`">

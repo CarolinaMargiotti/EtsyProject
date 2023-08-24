@@ -1,12 +1,13 @@
 <template>
-	<div class="home"></div>
+	<RecentActivity />
 </template>
 
 <script lang="ts">
+import RecentActivity from "@/components/RecentActivity.vue";
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({
-	components: {},
+	components: { RecentActivity },
 })
 export default class HomeView extends Vue {}
 </script>

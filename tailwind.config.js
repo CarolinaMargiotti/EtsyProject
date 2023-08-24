@@ -9,6 +9,10 @@ module.exports = {
 			backgroundColor: {
 				lightGray: "#e1e3df",
 				lighterGray: "#F3F3F3",
+				toastedYellow: "#FDEBD2",
+			},
+			colors: {
+				muted: "rgb(89, 89, 89)",
 			},
 			letterSpacing: {
 				regular: "1px",
