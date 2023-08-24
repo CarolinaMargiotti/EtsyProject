@@ -3,7 +3,8 @@
 		alt="placeholder item"
 		class="placeholderItem transition-shadow rounded-lg hover:shadow-2xl relative"
 		:style="{
-			backgroundImage: `url(${require('../assets/img/placeholderItem.webp')})`,
+			backgroundImage: `url(${require('../assets/img/products/' +
+				imageUrl)})`,
 		}"
 		@mouseleave="isItemHovered = false"
 		@mouseenter="isItemHovered = true"
@@ -54,6 +55,9 @@ export default class DisplayItem extends Vue {
 
 	@Prop()
 	public isFavorite!: boolean;
+
+	@Prop()
+	public imageUrl!: string;
 
 	public favoriteStatus: boolean = false;
 
