@@ -1,32 +1,25 @@
 <template>
-	<div>
-		<section class="w-full bg-toastedYellow text-center text-4xl">
-			<div class="py-5">
-				Welcome to Etsy, <a href="#" class="underline">Carolina!</a>
+	<section id="recentActivity" class="mt-2">
+		<div class="flex justify-between items-end pb-4">
+			<label class="text-3xl font-bold">Your recent activity</label>
+			<div class="text-base text-muted">
+				<a href="#" class="underline">Recently viewed</a>
+				and
+				<a href="#" class="underline">favorited items</a>
 			</div>
-		</section>
-		<section class="px-headerPad">
-			<div class="flex justify-between items-end pb-4">
-				<label class="text-3xl font-bold">Your recent activity</label>
-				<div class="text-base text-muted">
-					<a href="#" class="underline">Recently viewed</a>
-					and
-					<a href="#" class="underline">favorited items</a>
-				</div>
-			</div>
+		</div>
 
-			<div class="grid grid-cols-5 gap-3">
-				<DisplayItem
-					v-for="product in activityProducts"
-					:key="product.id"
-					:id="product.id"
-					:price="product.price"
-					:isFavorite="product.isFavorite"
-					:imageUrl="product.imageUrl"
-				/>
-			</div>
-		</section>
-	</div>
+		<div class="grid grid-cols-5 gap-3">
+			<DisplayItem
+				v-for="product in activityProducts"
+				:key="product.id"
+				:id="product.id"
+				:price="product.price"
+				:isFavorite="product.isFavorite"
+				:imageUrl="product.imageUrl"
+			/>
+		</div>
+	</section>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";

@@ -1,7 +1,8 @@
 <template>
 	<div
 		alt="placeholder item"
-		class="placeholderItem transition-shadow rounded-lg hover:shadow-2xl relative"
+		class="placeholderItem transition-shadow rounded-lg hover:shadow-2xl relative cursor-pointer"
+		:class="`${displaySize}`"
 		:style="{
 			backgroundImage: `url(${require('../assets/img/products/' +
 				imageUrl)})`,
@@ -41,11 +42,15 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import { Sizes } from "@/models/ESize";
 
 @Component({})
 export default class DisplayItem extends Vue {
 	@Prop()
 	public id!: number;
+
+	@Prop({ default: Sizes.SM })
+	public size?: Sizes;
 
 	@Prop()
 	public price!: number;
@@ -60,6 +65,12 @@ export default class DisplayItem extends Vue {
 	public imageUrl!: string;
 
 	public favoriteStatus: boolean = false;
+
+	public sizeClasses: { [size in Sizes]: string } = {
+		SM: "placeholderSm",
+		MD: "placeholderMd",
+		LG: "placeholderLg",
+	};
 
 	mounted(): void {
 		this.favoriteStatus = this.isFavorite;
@@ -79,6 +90,10 @@ export default class DisplayItem extends Vue {
 		element?.classList.add("favoriteHeart");
 	}
 
+	public get displaySize(): string {
+		return this.sizeClasses[this.size || Sizes.SM];
+	}
+
 	public get formattedPrice(): string {
 		return this.price.toFixed(2);
 	}
@@ -89,9 +104,22 @@ export default class DisplayItem extends Vue {
 }
 </script>
 <style>
-.placeholderItem {
+.placeholderSm {
 	height: 10rem;
 	width: 16rem;
+}
+
+.placeholderMd {
+	width: 15.5rem;
+	height: 12.5rem;
+}
+
+.placeholderLg {
+	width: 33rem;
+	height: 26rem;
+}
+
+.placeholderItem {
 	background-size: cover;
 	background-position: center;
 	z-index: 1;
