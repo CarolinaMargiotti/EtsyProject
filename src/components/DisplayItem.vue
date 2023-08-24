@@ -57,7 +57,7 @@ export default class DisplayItem extends Vue {
 
 	public favoriteStatus: boolean = false;
 
-	mounted() {
+	mounted(): void {
 		this.favoriteStatus = this.isFavorite;
 	}
 
