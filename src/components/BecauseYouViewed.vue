@@ -45,9 +45,7 @@ export default class BecauseYouViewed extends Vue {
 }
 
 .firstProduct {
-	grid-column-start: 1;
-	grid-column-end: 2;
-	grid-row-start: 1;
-	grid-row-end: 3;
+	grid-row: 1/3;
+	grid-column: 1/2;
 }
 </style>
