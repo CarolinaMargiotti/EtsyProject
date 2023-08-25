@@ -46,6 +46,6 @@ export default class BecauseYouViewed extends Vue {
 
 .firstProduct {
 	grid-row: 1/-1;
-	grid-column: 1/2;
+	grid-column: 1 / span 1;
 }
 </style>
