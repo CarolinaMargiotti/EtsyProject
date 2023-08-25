@@ -14,56 +14,17 @@
 		</div>
 		<div class="flex mt-3">
 			<DisplayItem
-				:id="viewedItem.id"
-				:price="viewedItem.price"
-				:imageUrl="viewedItem.imageUrl"
-				:isFavorite="viewedItem.isFavorite"
+				:product="viewedItem"
 				:size="displaySizes.LG"
 				class="mr-3"
 			/>
 			<div class="grid grid-cols-3 gap-3">
-				<DisplayItem
-					:id="viewedItem.id"
-					:price="viewedItem.price"
-					:imageUrl="viewedItem.imageUrl"
-					:isFavorite="viewedItem.isFavorite"
-					:size="displaySizes.MD"
-				/>
-				<DisplayItem
-					:id="viewedItem.id"
-					:price="viewedItem.price"
-					:imageUrl="viewedItem.imageUrl"
-					:isFavorite="viewedItem.isFavorite"
-					:size="displaySizes.MD"
-				/>
-				<DisplayItem
-					:id="viewedItem.id"
-					:price="viewedItem.price"
-					:imageUrl="viewedItem.imageUrl"
-					:isFavorite="viewedItem.isFavorite"
-					:size="displaySizes.MD"
-				/>
-				<DisplayItem
-					:id="viewedItem.id"
-					:price="viewedItem.price"
-					:imageUrl="viewedItem.imageUrl"
-					:isFavorite="viewedItem.isFavorite"
-					:size="displaySizes.MD"
-				/>
-				<DisplayItem
-					:id="viewedItem.id"
-					:price="viewedItem.price"
-					:imageUrl="viewedItem.imageUrl"
-					:isFavorite="viewedItem.isFavorite"
-					:size="displaySizes.MD"
-				/>
-				<DisplayItem
-					:id="viewedItem.id"
-					:price="viewedItem.price"
-					:imageUrl="viewedItem.imageUrl"
-					:isFavorite="viewedItem.isFavorite"
-					:size="displaySizes.MD"
-				/>
+				<DisplayItem :product="viewedItem" :size="displaySizes.MD" />
+				<DisplayItem :product="viewedItem" :size="displaySizes.MD" />
+				<DisplayItem :product="viewedItem" :size="displaySizes.MD" />
+				<DisplayItem :product="viewedItem" :size="displaySizes.MD" />
+				<DisplayItem :product="viewedItem" :size="displaySizes.MD" />
+				<DisplayItem :product="viewedItem" :size="displaySizes.MD" />
 			</div>
 		</div>
 	</section>
