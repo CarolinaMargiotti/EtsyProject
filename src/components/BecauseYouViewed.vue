@@ -14,12 +14,11 @@
 		</div>
 		<div class="gridContent relative mt-3 w-full h-full">
 			<DisplayItem class="firstProduct" :product="viewedItem" />
-			<DisplayItem :product="viewedItem" />
-			<DisplayItem :product="viewedItem" />
-			<DisplayItem :product="viewedItem" />
-			<DisplayItem :product="viewedItem" />
-			<DisplayItem :product="viewedItem" />
-			<DisplayItem :product="viewedItem" />
+			<DisplayItem
+				v-for="item in similarItems"
+				:key="item.id"
+				:product="item"
+			/>
 		</div>
 	</section>
 </template>
@@ -32,6 +31,9 @@ import DisplayItem from "./DisplayItem.vue";
 export default class BecauseYouViewed extends Vue {
 	@Prop()
 	public viewedItem!: IProduct;
+
+	@Prop()
+	public similarItems!: IProduct[];
 }
 </script>
 <style>
