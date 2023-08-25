@@ -12,20 +12,14 @@
 				}"
 			/>
 		</div>
-		<div class="flex mt-3">
-			<DisplayItem
-				:product="viewedItem"
-				:size="displaySizes.LG"
-				class="mr-3"
-			/>
-			<div class="grid grid-cols-3 gap-3">
-				<DisplayItem :product="viewedItem" :size="displaySizes.MD" />
-				<DisplayItem :product="viewedItem" :size="displaySizes.MD" />
-				<DisplayItem :product="viewedItem" :size="displaySizes.MD" />
-				<DisplayItem :product="viewedItem" :size="displaySizes.MD" />
-				<DisplayItem :product="viewedItem" :size="displaySizes.MD" />
-				<DisplayItem :product="viewedItem" :size="displaySizes.MD" />
-			</div>
+		<div class="gridContent relative mt-3 w-full h-full">
+			<DisplayItem class="firstProduct" :product="viewedItem" />
+			<DisplayItem :product="viewedItem" />
+			<DisplayItem :product="viewedItem" />
+			<DisplayItem :product="viewedItem" />
+			<DisplayItem :product="viewedItem" />
+			<DisplayItem :product="viewedItem" />
+			<DisplayItem :product="viewedItem" />
 		</div>
 	</section>
 </template>
@@ -33,13 +27,25 @@
 import IProduct from "@/models/IProduct";
 import { Component, Prop, Vue } from "vue-property-decorator";
 import DisplayItem from "./DisplayItem.vue";
-import { Sizes } from "@/models/ESize";
 
 @Component({ components: { DisplayItem } })
 export default class BecauseYouViewed extends Vue {
 	@Prop()
 	public viewedItem!: IProduct;
-
-	public displaySizes: typeof Sizes = Sizes;
 }
 </script>
+<style>
+.gridContent {
+	display: grid;
+	grid-template-rows: repeat(2, 12rem);
+	grid-template-columns: 2fr repeat(3, 1fr);
+	gap: 1rem;
+}
+
+.firstProduct {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+</style>

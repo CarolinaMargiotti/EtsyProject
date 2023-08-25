@@ -9,14 +9,11 @@
 			</div>
 		</div>
 
-		<div class="grid grid-cols-5 gap-3">
+		<div class="grid gridActivity gap-4">
 			<DisplayItem
 				v-for="product in activityProducts"
 				:key="product.id"
-				:id="product.id"
-				:price="product.price"
-				:isFavorite="product.isFavorite"
-				:imageUrl="product.imageUrl"
+				:product="product"
 			/>
 		</div>
 	</section>
@@ -94,3 +91,9 @@ export default class RecentActivity extends Vue {
 	];
 }
 </script>
+<style>
+.gridActivity {
+	grid-template-rows: repeat(2, 9.5rem);
+	grid-template-columns: repeat(5, 1fr);
+}
+</style>
