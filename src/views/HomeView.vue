@@ -7,7 +7,7 @@
 				Welcome to Etsy, <a href="#" class="underline">Carolina!</a>
 			</div>
 		</section>
-		<div class="px-headerPad grid gap-2">
+		<div class="px-headerPad mb-7 grid gap-2">
 			<BecauseYouViewed
 				:isBigShowcase="true"
 				:viewedItem="viewedItem"
@@ -15,7 +15,12 @@
 			/>
 			<BecauseYouViewed
 				:viewedItem="viewedItem"
-				:similarItems="similarItems.slice(0, 4)"
+				:similarItems="similarItems"
+			/>
+			<BecauseYouViewed
+				:hasGenreLinks="true"
+				:viewedItem="viewedItem"
+				:similarItems="similarItems"
 			/>
 			<RecentActivity />
 		</div>
@@ -37,6 +42,7 @@ export default class HomeView extends Vue {
 		price: 1,
 		isFavorite: false,
 		imageUrl: "placeholderItem.webp",
+		genre: "strawberry beret",
 	};
 
 	public similarItems: IProduct[] = [
@@ -45,36 +51,63 @@ export default class HomeView extends Vue {
 			price: 1,
 			isFavorite: false,
 			imageUrl: "placeholderItem.webp",
+			genre: "strawberry beret",
 		},
 		{
 			id: 13,
 			price: 1,
 			isFavorite: false,
 			imageUrl: "placeholderItem.webp",
+			genre: "strawberry beret",
 		},
 		{
 			id: 14,
 			price: 1,
 			isFavorite: false,
 			imageUrl: "placeholderItem.webp",
+			genre: "strawberry beret",
 		},
 		{
 			id: 15,
 			price: 1,
 			isFavorite: false,
 			imageUrl: "placeholderItem.webp",
+			genre: "strawberry beret",
 		},
 		{
 			id: 16,
 			price: 1,
 			isFavorite: false,
 			imageUrl: "placeholderItem.webp",
+			genre: "strawberry beret",
 		},
 		{
 			id: 17,
 			price: 1,
 			isFavorite: false,
 			imageUrl: "placeholderItem.webp",
+			genre: "strawberry beret",
+		},
+		{
+			id: 18,
+			price: 1,
+			isFavorite: false,
+			imageUrl: "placeholderItem.webp",
+			genre: "strawberry beret",
+		},
+		{
+			id: 19,
+			price: 1,
+			isFavorite: false,
+			imageUrl: "placeholderItem.webp",
+			genre: "strawberry beret",
+		},
+		{
+			id: 20,
+			price: 1,
+			isFavorite: false,
+			imageUrl: "placeholderItem.webp",
+			genre: "strawberry beret",
 		},
 	];
 }

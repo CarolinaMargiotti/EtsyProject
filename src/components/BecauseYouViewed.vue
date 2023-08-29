@@ -13,7 +13,7 @@
 			/>
 		</div>
 		<div
-			class="relative mt-3 w-full h-full"
+			class="relative mt-3 w-full"
 			:class="{
 				gridContentBig: isBigShowcase,
 				gridContentNormal: !isBigShowcase,
@@ -25,7 +25,14 @@
 				:product="viewedItem"
 			/>
 			<DisplayItem
-				v-for="item in similarItems"
+				v-for="item in mainSimilarItems"
+				:key="item.id"
+				:product="item"
+			/>
+		</div>
+		<div v-if="hasGenreLinks" class="mt-3 grid grid-cols-4 gap-5">
+			<ProductGenreLink
+				v-for="item in genreSimilarItems"
 				:key="item.id"
 				:product="item"
 			/>
@@ -34,10 +41,11 @@
 </template>
 <script lang="ts">
 import IProduct from "@/models/IProduct";
+import ProductGenreLink from "./ProductGenreLink.vue";
 import { Component, Prop, Vue } from "vue-property-decorator";
 import DisplayItem from "./DisplayItem.vue";
 
-@Component({ components: { DisplayItem } })
+@Component({ components: { DisplayItem, ProductGenreLink } })
 export default class BecauseYouViewed extends Vue {
 	@Prop()
 	public viewedItem!: IProduct;
@@ -46,7 +54,24 @@ export default class BecauseYouViewed extends Vue {
 	public isBigShowcase?: boolean;
 
 	@Prop()
+	public hasGenreLinks?: boolean;
+
+	@Prop()
 	public similarItems!: IProduct[];
+
+	public mainSimilarItems: IProduct[] = [];
+	public genreSimilarItems: IProduct[] = [];
+
+	public mounted(): void {
+		const endOfMainItems = this.isBigShowcase ? 6 : 4;
+		this.mainSimilarItems = this.similarItems.slice(0, endOfMainItems);
+		this.genreSimilarItems = this.similarItems.slice(
+			endOfMainItems,
+			this.similarItems.length - 1
+		);
+
+		console.log(this.similarItems);
+	}
 }
 </script>
 <style>

@@ -7,5 +7,6 @@ export default interface IProduct {
 	url?: string;
 	title?: string;
 	stars?: number;
+	genre?: string;
 	freeShipping?: boolean;
 }
