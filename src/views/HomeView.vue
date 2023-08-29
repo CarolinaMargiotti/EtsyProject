@@ -10,16 +10,16 @@
 		<div class="px-headerPad mb-7 grid gap-2">
 			<BecauseYouViewed
 				:isBigShowcase="true"
-				:viewedItem="viewedItem"
+				:viewedItems="[viewedItem, viewedItem]"
 				:similarItems="similarItems"
 			/>
 			<BecauseYouViewed
-				:viewedItem="viewedItem"
+				:viewedItems="[viewedItem]"
 				:similarItems="similarItems"
 			/>
 			<BecauseYouViewed
 				:hasGenreLinks="true"
-				:viewedItem="viewedItem"
+				:viewedItems="[viewedItem]"
 				:similarItems="similarItems"
 			/>
 			<RecentActivity />

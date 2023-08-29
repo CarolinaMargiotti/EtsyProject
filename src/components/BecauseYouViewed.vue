@@ -1,14 +1,16 @@
 <template>
 	<section id="becauseYouViewed" class="mt-5 mb-5">
 		<span class="font-bold"> Because you viewed </span>
-		<div>
+		<div class="grid gap-3 grid-flow-col justify-start">
 			<img
-				src="../assets/img/products/placeholderItem.webp"
+				v-for="viewedItem in viewedItems"
+				:key="viewedItem.id"
+				:src="require(`../assets/img/products/${viewedItem.imageUrl}`)"
 				alt="viewed item"
-				class="rounded mt-2"
+				class="rounded hover:shadow-xl cursor-pointer mt-2"
 				:style="{
-					width: '60px',
-					height: '60px',
+					width: '4rem',
+					height: '4rem',
 				}"
 			/>
 		</div>
@@ -22,7 +24,7 @@
 			<DisplayItem
 				v-if="isBigShowcase"
 				class="firstProduct"
-				:product="viewedItem"
+				:product="similarItems[0]"
 			/>
 			<DisplayItem
 				v-for="item in mainSimilarItems"
@@ -48,7 +50,7 @@ import DisplayItem from "./DisplayItem.vue";
 @Component({ components: { DisplayItem, ProductGenreLink } })
 export default class BecauseYouViewed extends Vue {
 	@Prop()
-	public viewedItem!: IProduct;
+	public viewedItems!: IProduct[];
 
 	@Prop()
 	public isBigShowcase?: boolean;
@@ -63,14 +65,16 @@ export default class BecauseYouViewed extends Vue {
 	public genreSimilarItems: IProduct[] = [];
 
 	public mounted(): void {
-		const endOfMainItems = this.isBigShowcase ? 6 : 4;
-		this.mainSimilarItems = this.similarItems.slice(0, endOfMainItems);
+		const endOfMainItems = this.isBigShowcase ? 7 : 4;
+		const startOfMainItems = this.isBigShowcase ? 1 : 0;
+		this.mainSimilarItems = this.similarItems.slice(
+			startOfMainItems,
+			endOfMainItems
+		);
 		this.genreSimilarItems = this.similarItems.slice(
 			endOfMainItems,
 			this.similarItems.length - 1
 		);
-
-		console.log(this.similarItems);
 	}
 }
 </script>
