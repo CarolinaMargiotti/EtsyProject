@@ -7,11 +7,15 @@
 				Welcome to Etsy, <a href="#" class="underline">Carolina!</a>
 			</div>
 		</section>
-		<div class="px-headerPad">
+		<div class="px-headerPad grid gap-2">
 			<BecauseYouViewed
 				:isBigShowcase="true"
 				:viewedItem="viewedItem"
 				:similarItems="similarItems"
+			/>
+			<BecauseYouViewed
+				:viewedItem="viewedItem"
+				:similarItems="similarItems.slice(0, 4)"
 			/>
 			<RecentActivity />
 		</div>

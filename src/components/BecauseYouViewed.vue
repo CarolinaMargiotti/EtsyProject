@@ -59,7 +59,7 @@ export default class BecauseYouViewed extends Vue {
 
 .gridContentNormal {
 	display: grid;
-	grid-template-rows: repeat(2, 12rem);
+	grid-template-rows: 12rem;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 1rem;
 }
