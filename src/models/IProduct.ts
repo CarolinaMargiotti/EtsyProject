@@ -4,7 +4,9 @@ export default interface IProduct {
 	discountedPrice?: number;
 	isFavorite: boolean;
 	imageUrl: string;
+	url?: string;
 	title?: string;
 	stars?: number;
+	genre?: string;
 	freeShipping?: boolean;
 }

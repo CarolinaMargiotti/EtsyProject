@@ -1,10 +1,10 @@
 <template>
 	<div
 		alt="placeholder item"
-		class="placeholderItem transition-shadow rounded-lg hover:shadow-2xl relative"
+		class="placeholderItem transition-shadow rounded-lg hover:shadow-2xl relative cursor-pointer"
 		:style="{
 			backgroundImage: `url(${require('../assets/img/products/' +
-				imageUrl)})`,
+				product.imageUrl)})`,
 		}"
 		@mouseleave="isItemHovered = false"
 		@mouseenter="isItemHovered = true"
@@ -16,7 +16,7 @@
 				>USD {{ formattedPrice }}
 			</span>
 			<span
-				v-if="discountedPrice"
+				v-if="product.discountedPrice"
 				class="discountPrice pl-1 line-through"
 			>
 				USD {{ formattedDiscountPrice }}
@@ -29,7 +29,7 @@
 		>
 			<div v-show="favoriteStatus">
 				<i
-					:id="`favoriteHeart${id}`"
+					:id="`favoriteHeart${product.id}`"
 					class="fas fa-heart text-red-700"
 				></i>
 			</div>
@@ -41,28 +41,17 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import IProduct from "@/models/IProduct";
 
 @Component({})
 export default class DisplayItem extends Vue {
 	@Prop()
-	public id!: number;
-
-	@Prop()
-	public price!: number;
-
-	@Prop()
-	public discountedPrice?: number;
-
-	@Prop()
-	public isFavorite!: boolean;
-
-	@Prop()
-	public imageUrl!: string;
+	public product!: IProduct;
 
 	public favoriteStatus: boolean = false;
 
 	mounted(): void {
-		this.favoriteStatus = this.isFavorite;
+		this.favoriteStatus = this.product?.isFavorite;
 	}
 
 	public isItemHovered: boolean = false;
@@ -74,24 +63,22 @@ export default class DisplayItem extends Vue {
 
 	public addPulsateAnimationToIcon(): void {
 		const element: HTMLElement | null = document.getElementById(
-			`favoriteHeart${this.id}`
+			`favoriteHeart${this.product.id}`
 		);
 		element?.classList.add("favoriteHeart");
 	}
 
 	public get formattedPrice(): string {
-		return this.price.toFixed(2);
+		return this.product.price.toFixed(2);
 	}
 
 	public get formattedDiscountPrice(): string {
-		return this.discountedPrice?.toFixed(2) || "";
+		return this.product.discountedPrice?.toFixed(2) || "";
 	}
 }
 </script>
 <style>
 .placeholderItem {
-	height: 10rem;
-	width: 16rem;
 	background-size: cover;
 	background-position: center;
 	z-index: 1;

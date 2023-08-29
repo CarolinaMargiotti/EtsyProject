@@ -1,7 +1,9 @@
 <template>
 	<div id="app" class="tracking-regular">
 		<NavBar />
-		<router-view />
+		<main>
+			<router-view />
+		</main>
 	</div>
 </template>
 <script lang="ts">
