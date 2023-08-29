@@ -1,16 +1,19 @@
 <template>
 	<div>
-		<section class="w-full bg-toastedYellow text-center text-4xl">
+		<section
+			class="w-full bg-toastedYellow text-center text-4xl alongatedBackground"
+		>
 			<div class="py-5">
 				Welcome to Etsy, <a href="#" class="underline">Carolina!</a>
 			</div>
 		</section>
 		<div class="px-headerPad">
-			<RecentActivity />
 			<BecauseYouViewed
+				:isBigShowcase="true"
 				:viewedItem="viewedItem"
 				:similarItems="similarItems"
 			/>
+			<RecentActivity />
 		</div>
 	</div>
 </template>
@@ -72,3 +75,14 @@ export default class HomeView extends Vue {
 	];
 }
 </script>
+<style>
+.alongatedBackground::after {
+	content: "";
+	position: absolute;
+	height: 40vh;
+	width: 100%;
+	left: 0;
+	background-color: #fdebd2;
+	z-index: -1;
+}
+</style>

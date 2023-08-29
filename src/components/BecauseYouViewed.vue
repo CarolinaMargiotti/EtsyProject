@@ -12,8 +12,18 @@
 				}"
 			/>
 		</div>
-		<div class="gridContent relative mt-3 w-full h-full">
-			<DisplayItem class="firstProduct" :product="viewedItem" />
+		<div
+			class="relative mt-3 w-full h-full"
+			:class="{
+				gridContentBig: isBigShowcase,
+				gridContentNormal: !isBigShowcase,
+			}"
+		>
+			<DisplayItem
+				v-if="isBigShowcase"
+				class="firstProduct"
+				:product="viewedItem"
+			/>
 			<DisplayItem
 				v-for="item in similarItems"
 				:key="item.id"
@@ -33,14 +43,24 @@ export default class BecauseYouViewed extends Vue {
 	public viewedItem!: IProduct;
 
 	@Prop()
+	public isBigShowcase?: boolean;
+
+	@Prop()
 	public similarItems!: IProduct[];
 }
 </script>
 <style>
-.gridContent {
+.gridContentBig {
 	display: grid;
 	grid-template-rows: repeat(2, 12rem);
 	grid-template-columns: 2fr repeat(3, 1fr);
+	gap: 1rem;
+}
+
+.gridContentNormal {
+	display: grid;
+	grid-template-rows: repeat(2, 12rem);
+	grid-template-columns: repeat(4, 1fr);
 	gap: 1rem;
 }
 
