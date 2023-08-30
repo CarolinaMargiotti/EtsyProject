@@ -15,7 +15,7 @@
 				<div
 					class="bg-orange-400 rounded-full border-white border-2 px-1"
 				>
-					7
+					{{ notificationNumbers }}
 				</div>
 			</span>
 			<i class="far h-5 fa-bell"> </i>
@@ -37,12 +37,15 @@
 	</section>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 import SearchBar from "./SearchBar.vue";
 import Logo from "../Logo.vue";
 
 @Component({ components: { SearchBar, Logo } })
-export default class TopBar extends Vue {}
+export default class TopBar extends Vue {
+	@Prop({ default: 7 })
+	public notificationNumbers!: number;
+}
 </script>
 <style>
 .iconHover {

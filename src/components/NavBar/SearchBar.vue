@@ -1,12 +1,12 @@
 <template>
-	<div class="teste flex-grow flex w-full relative items-center">
+	<div class="flex-grow flex w-full relative items-center">
 		<input
 			type="text"
-			class="bg-lighterGray w-full rounded-full rounded-r-none border-r-0 border-2 border-black px-5 p-2 text-base tracking-regular"
+			class="bg-lighterGray h-searchBar w-full rounded-full rounded-r-none border-r-0 border-2 border-black px-5 p-2 text-base tracking-regular"
 			placeholder="Search for anything"
 		/>
 		<button
-			class="bg-lighterGray searchHover rounded-r-full px-5 p-2 border-2 border-l-0 border-black"
+			class="bg-lighterGray h-searchBar searchHover rounded-r-full px-5 p-2 border-2 border-l-0 border-black"
 		>
 			<i class="h-5 fas fa-magnifying-glass"></i>
 		</button>

@@ -20,6 +20,15 @@ module.exports = {
 			padding: {
 				headerPad: "18rem",
 			},
+			width: {
+				pageContent: "80rem",
+			},
+			height: {
+				searchBar: "2.7rem",
+			},
+			margin: {
+				pageContent: "0 auto",
+			},
 		},
 	},
 	plugins: [],
