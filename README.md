@@ -8,7 +8,7 @@ Icons are from fontawesome.
 
 
 ### Notes
-Resposivity isn't being taken care of yet but will be in the future. The development screen size was 1920 x 1080 <br>
+Resposiviness is in development, due to that parts of the website will still break on smaller screens, to view it as it was intended please use a 1920 x 1080 screen size. <br>
 Tests done are examples for now, test coverage for the whole project is being considered.
 
 
