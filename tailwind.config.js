@@ -21,7 +21,7 @@ module.exports = {
 				headerPad: "18rem",
 			},
 			width: {
-				pageContent: "80rem",
+				pageContent: "80vw",
 			},
 			height: {
 				searchBar: "2.7rem",

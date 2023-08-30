@@ -1,35 +1,37 @@
 <template>
 	<header
-		class="pt-2 border-b-2 border-solid border-b-lightGray relative bg-white z-10"
+		class="pt-2 border-b-2 border-solid border-b-lightGray relative bg-white z-10 flex justify-center"
 	>
-		<section class="w-pageContent m-pageContent">
+		<section class="w-pageContent">
 			<TopBar />
-			<nav id="navCollection" :class="`flex justify-between`">
-				<div
-					v-for="(nav, index) in categories"
-					:key="index"
-					class="pb-3 navbar"
-					@mouseover="mouseHoverOnNavLink(index)"
-					@mouseleave="mouseOutOnNavLink()"
-				>
-					<router-link :to="nav.link">{{ nav.text }}</router-link>
-				</div>
-			</nav>
-			<hr
-				class="bg-black relative"
-				:style="{
-					left: offsetValue + 'px',
-					width: currentActiveNavWidth + 'px',
-					transition: 'all 0.5s',
-					top: '0.10rem',
-					height: '0.20rem',
-				}"
-			/>
-			<DropDownNav
-				:hoveredNav="hoveredNav"
-				:shouldShow="isHovering"
-				@dropdownHoverChanged="isDropdownHoveringChanged"
-			/>
+			<div class="hidden lg:block">
+				<nav id="navCollection" class="flex justify-between pb-3">
+					<div
+						v-for="(nav, index) in categories"
+						:key="index"
+						class="navbar"
+						@mouseover="mouseHoverOnNavLink(index)"
+						@mouseleave="mouseOutOnNavLink()"
+					>
+						<router-link :to="nav.link">{{ nav.text }}</router-link>
+					</div>
+				</nav>
+				<hr
+					class="bg-black relative"
+					:style="{
+						left: offsetValue + 'px',
+						width: currentActiveNavWidth + 'px',
+						transition: 'all 0.5s',
+						top: '0.10rem',
+						height: '0.20rem',
+					}"
+				/>
+				<DropDownNav
+					:hoveredNav="hoveredNav"
+					:shouldShow="isHovering"
+					@dropdownHoverChanged="isDropdownHoveringChanged"
+				/>
+			</div>
 		</section>
 	</header>
 </template>
