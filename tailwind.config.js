@@ -29,6 +29,11 @@ module.exports = {
 			margin: {
 				pageContent: "0 auto",
 			},
+			screens: {
+				"max-lg": {
+					max: "1023px",
+				},
+			},
 		},
 	},
 	plugins: [],

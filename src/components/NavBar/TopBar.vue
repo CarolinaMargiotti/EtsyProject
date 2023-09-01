@@ -1,7 +1,13 @@
 <template>
 	<section class="pb-3 gridTop">
 		<Logo />
-		<SearchBar />
+		<div class="lg:hidden"></div>
+		<div class="mobileSearch flex">
+			<IconButton class="lg:hidden mr-4 h-max self-center">
+				<i class="fas fa-bars"></i>
+			</IconButton>
+			<SearchBar />
+		</div>
 		<IconButton>
 			<i class="h-5 far fa-heart"></i>
 		</IconButton>
@@ -57,5 +63,12 @@ export default class TopBar extends Vue {
 .notification {
 	transform: translateY(-50%);
 	left: 0;
+}
+
+@media screen and (max-width: 1024px) {
+	.mobileSearch {
+		grid-row: 2 / span 1;
+		grid-column: 1/-1;
+	}
 }
 </style>
