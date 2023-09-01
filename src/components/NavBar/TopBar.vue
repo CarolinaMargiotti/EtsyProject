@@ -1,27 +1,21 @@
 <template>
-	<section class="pb-3 flex justify-between">
-		<Logo class="mr-2" />
+	<section class="pb-3 gridTop">
+		<Logo />
 		<SearchBar />
-		<div class="w-20 flex justify-center items-center iconHover">
+		<IconButton>
 			<i class="h-5 far fa-heart"></i>
-		</div>
-		<div
-			class="w-28 flex justify-center grow relative content-between items-center iconHover"
-		>
-			<span
-				class="notification absolute top-1 text-center font-bold text-xs align-top"
-				style="padding-top: 0.05rem; padding-left: 0.1rem"
-			>
+		</IconButton>
+		<IconButton :hasCaret="true" class="grow relative content-between">
+			<i class="far h-5 fa-bell"> </i>
+			<span class="notification absolute text-center font-bold text-xs">
 				<div
 					class="bg-orange-400 rounded-full border-white border-2 px-1"
 				>
 					{{ notificationNumbers }}
 				</div>
 			</span>
-			<i class="far h-5 fa-bell"> </i>
-			<i class="ml-3 fa-solid text-gray-400 fa-caret-down"></i>
-		</div>
-		<div class="flex justify-center items-center w-28 iconHover">
+		</IconButton>
+		<IconButton :hasCaret="true">
 			<img
 				src="@/assets/img/default-profile-icon.jpg"
 				width="30px"
@@ -29,44 +23,39 @@
 				class="rounded-full"
 				alt="default icon profile"
 			/>
-			<i class="ml-3 fa-solid text-gray-400 fa-caret-down"></i>
-		</div>
-		<div class="flex justify-center items-center w-20 iconHover">
+		</IconButton>
+		<IconButton>
 			<i class="h-5 fas fa-cart-shopping"></i>
-		</div>
+		</IconButton>
 	</section>
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import SearchBar from "./SearchBar.vue";
 import Logo from "../Logo.vue";
+import IconButton from "./IconButton.vue";
 
-@Component({ components: { SearchBar, Logo } })
+@Component({ components: { SearchBar, Logo, IconButton } })
 export default class TopBar extends Vue {
 	@Prop({ default: 7 })
 	public notificationNumbers!: number;
 }
 </script>
 <style>
-.iconHover {
-	position: relative;
-	transition: background-color 0.3s ease;
+.gridTop {
+	display: grid;
+	grid-template-columns:
+		[full-start logo-start] max-content [logo-end searchbar-start] 1fr [searchbar-end button-start] repeat(
+			4,
+			[col-start] max-content [col-end]
+		)
+		[full-end];
+	column-gap: 1.3rem;
+	align-items: center;
 }
 
-.iconHover::before {
-	content: "";
-	position: absolute;
-	width: 80%;
-	height: 80%;
-	opacity: 0.5;
-	background-color: lightgrey;
-	border-radius: 40rem;
-	transform: scale(0%);
-	transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-	z-index: -1;
-}
-
-.iconHover:hover::before {
-	transform: scale(100%);
+.notification {
+	transform: translateY(-50%);
+	left: 0;
 }
 </style>
