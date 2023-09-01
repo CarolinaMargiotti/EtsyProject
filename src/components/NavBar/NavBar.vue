@@ -2,7 +2,7 @@
 	<header
 		class="pt-2 border-b-2 border-solid border-b-lightGray relative bg-white z-10 flex justify-center"
 	>
-		<section class="w-pageContent">
+		<section class="w-full mx-5 lg:w-pageContent">
 			<TopBar />
 			<div class="hidden lg:block">
 				<nav id="navCollection" class="flex justify-between pb-3">
