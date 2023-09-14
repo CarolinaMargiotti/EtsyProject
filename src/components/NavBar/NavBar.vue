@@ -1,9 +1,10 @@
 <template>
 	<header
-		class="pt-2 border-b-2 border-solid border-b-lightGray relative bg-white z-10 flex justify-center"
+		class="border-b-2 border-solid border-b-lightGray relative bg-white z-10 flex justify-center"
 	>
-		<section class="w-full mx-5 lg:w-pageContent">
-			<TopBar />
+		<section class="w-full lg:w-pageContent">
+			<NavModal v-if="shouldShowModal" @closeModal="closeModal()" />
+			<TopBar @openModal="openModal()" />
 			<BottomBar />
 		</section>
 	</header>
@@ -19,5 +20,15 @@ import BottomBar from "./BottomBar.vue";
 @Component({
 	components: { Logo, Input, TopBar, NavModal, BottomBar },
 })
-export default class NavBar extends Vue {}
+export default class NavBar extends Vue {
+	public shouldShowModal: boolean = false;
+
+	public openModal(): void {
+		this.shouldShowModal = true;
+	}
+
+	public closeModal(): void {
+		this.shouldShowModal = false;
+	}
+}
 </script>

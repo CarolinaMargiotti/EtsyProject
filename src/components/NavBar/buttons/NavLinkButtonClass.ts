@@ -11,4 +11,8 @@ export default class ArrowButton extends Vue {
 	public hoveredButton(): void {
 		this.$emit("hoveredButton");
 	}
+
+	public clickedButton(): void {
+		this.$emit("clickedButton");
+	}
 }

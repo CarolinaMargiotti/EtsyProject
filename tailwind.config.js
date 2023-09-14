@@ -10,6 +10,7 @@ module.exports = {
 				lightGray: "#e1e3df",
 				lighterGray: "#F3F3F3",
 				toastedYellow: "#FDEBD2",
+				transparentBlack: "#5c5c5c80",
 			},
 			colors: {
 				muted: "rgb(89, 89, 89)",

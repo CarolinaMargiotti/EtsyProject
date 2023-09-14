@@ -1,11 +1,13 @@
 <template>
-	<section class="pb-3 gridTop">
+	<section class="pb-3 pt-2 px-5 gridTop">
 		<Logo />
 		<div class="lg:hidden"></div>
 		<div class="mobileSearch flex">
-			<IconButton class="lg:hidden mr-4 h-max self-center">
-				<i class="fas fa-bars"></i>
-			</IconButton>
+			<button @click="openModalCategories()">
+				<IconButton class="lg:hidden mr-4 h-max self-center">
+					<i class="fas fa-bars"></i>
+				</IconButton>
+			</button>
 			<SearchBar />
 		</div>
 		<IconButton>
@@ -45,6 +47,10 @@ import IconButton from "./IconButton.vue";
 export default class TopBar extends Vue {
 	@Prop({ default: 7 })
 	public notificationNumbers!: number;
+
+	public openModalCategories(): void {
+		this.$emit("openModal");
+	}
 }
 </script>
 <style>
