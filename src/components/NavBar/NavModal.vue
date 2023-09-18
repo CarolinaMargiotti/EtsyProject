@@ -66,24 +66,22 @@ export default class NavModal extends Vue {
 		| DropDownThreeListsInterface[]
 	)[] = [Categories];
 
-	public closeModal(): void {
-		this.$emit("closeModal");
-	}
-
-	public goToPrevious(): void {
-		this.categories.pop();
-	}
+	private columnNames: string[] = [
+		"firstColumn",
+		"secondColumn",
+		"thirdColumn",
+	];
 
 	public changeCategory(category: any): void {
 		if (category?.subcategories) {
 			this.categories.push(category?.subcategories);
 			return;
 		} else if (category?.firstColumn) {
-			const columns = ["firstColumn", "secondColumn", "thirdColumn"];
 			let dataToPush:
 				| DropDownCategoriesTypeInterface[]
 				| DropDownThreeListsInterface[] = [];
-			columns.forEach((column) => {
+
+			this.columnNames.forEach((column) => {
 				if (!category?.[column]) return;
 				dataToPush = [...dataToPush, ...category[column]];
 			});
@@ -92,6 +90,14 @@ export default class NavModal extends Vue {
 			this.categories.push([...dataToPush]);
 			return;
 		}
+	}
+
+	public goToPrevious(): void {
+		this.categories.pop();
+	}
+
+	public closeModal(): void {
+		this.$emit("closeModal");
 	}
 
 	public hasSubcategories(category: any) {
@@ -111,7 +117,7 @@ export default class NavModal extends Vue {
 	}
 
 	get categoriesTitle(): string {
-		return this.categories[0][0].text;
+		return this.categories[this.categories.length - 1][0].text;
 	}
 
 	get shouldShowPreviousArrow(): boolean {
