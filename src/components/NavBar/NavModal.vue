@@ -46,6 +46,7 @@ import {
 	DropDownThreeListsInterface,
 } from "@/models/ICategories";
 import DropdownButton from "@/components/NavBar/dropdown/DropdownButton.vue";
+import CategoryColumn from "./dropdown/CategoryColumn.vue";
 
 @Component({ components: { DropdownButton } })
 export default class NavModal extends Vue {
@@ -66,7 +67,7 @@ export default class NavModal extends Vue {
 		if (category?.subcategories) {
 			this.categories.push(category?.subcategories);
 			return;
-		} else {
+		} else if (category?.firstColumn) {
 			const columns = ["firstColumn", "secondColumn", "thirdColumn"];
 			let dataToPush:
 				| DropDownCategoriesTypeInterface[]
