@@ -26,12 +26,23 @@
 						</button>
 					</div>
 					<div class="col-span-3 mb-28">
-						<DropdownButton
+						<div
 							v-for="(category, index) in displayCategories"
 							:key="index"
-							:item="category"
-							@clickedButton="changeCategory(category)"
-						/>
+						>
+							<ArrowButton
+								v-if="hasSubcategories(category)"
+								:link="category.link"
+								:text="category.text"
+								@clickedButton="changeCategory(category)"
+							/>
+							<DropdownButton
+								v-else
+								class="mb-5"
+								:item="category"
+								@clickedButton="changeCategory(category)"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -46,9 +57,9 @@ import {
 	DropDownThreeListsInterface,
 } from "@/models/ICategories";
 import DropdownButton from "@/components/NavBar/dropdown/DropdownButton.vue";
-import CategoryColumn from "./dropdown/CategoryColumn.vue";
+import ArrowButton from "./buttons/ArrowButton.vue";
 
-@Component({ components: { DropdownButton } })
+@Component({ components: { DropdownButton, ArrowButton } })
 export default class NavModal extends Vue {
 	public categories: (
 		| DropDownCategoriesTypeInterface[]
@@ -81,6 +92,10 @@ export default class NavModal extends Vue {
 			this.categories.push([...dataToPush]);
 			return;
 		}
+	}
+
+	public hasSubcategories(category: any) {
+		return category?.subcategories || category?.firstColumn;
 	}
 
 	get displayCategories():
