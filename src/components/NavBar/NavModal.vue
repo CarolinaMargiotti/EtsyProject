@@ -2,26 +2,34 @@
 	<div
 		class="lg:hidden fixed bg-transparentBlack h-full w-full box-content z-30"
 	>
-		<div class="bg-white mt-32 h-full">
+		<div class="bg-white mt-32 h-full overflow-scroll">
 			<div class="pt-1">
 				<div class="font-bold text-center mt-4 grid grid-cols-3">
 					<div class="text-start pl-3">
-						<button @click="goToPrevious()">
+						<button
+							v-if="shouldShowPreviousArrow"
+							@click="goToPrevious()"
+						>
 							<i class="fa-solid fa-chevron-left"></i>
 						</button>
 					</div>
-					<div class="col-start-2 text-xl">Browse Categories</div>
+					<div class="text-xl">
+						{{
+							isNoCategoriesSelected
+								? `Browse Categories`
+								: categoriesTitle
+						}}
+					</div>
 					<div class="text-end pr-3">
 						<button @click="closeModal()">
 							<i class="fa-solid fa-x"></i>
 						</button>
 					</div>
-					<div class="col-span-3">
-						<ArrowButton
+					<div class="col-span-3 mb-28">
+						<DropdownButton
 							v-for="(category, index) in displayCategories"
 							:key="index"
-							:text="category.text"
-							link="#"
+							:item="category"
 							@clickedButton="changeCategory(category)"
 						/>
 					</div>
@@ -37,9 +45,9 @@ import {
 	DropDownCategoriesTypeInterface,
 	DropDownThreeListsInterface,
 } from "@/models/ICategories";
-import ArrowButton from "./buttons/ArrowButton.vue";
+import DropdownButton from "@/components/NavBar/dropdown/DropdownButton.vue";
 
-@Component({ components: { ArrowButton } })
+@Component({ components: { DropdownButton } })
 export default class NavModal extends Vue {
 	public categories: (
 		| DropDownCategoriesTypeInterface[]
@@ -59,11 +67,17 @@ export default class NavModal extends Vue {
 			this.categories.push(category?.subcategories);
 			return;
 		} else {
-			this.categories.push(
-				...category?.firstColumn,
-				...category?.secondColumn,
-				...category?.thirdColumn
-			);
+			const columns = ["firstColumn", "secondColumn", "thirdColumn"];
+			let dataToPush:
+				| DropDownCategoriesTypeInterface[]
+				| DropDownThreeListsInterface[] = [];
+			columns.forEach((column) => {
+				if (!category?.[column]) return;
+				dataToPush = [...dataToPush, ...category[column]];
+			});
+
+			if (!dataToPush) return;
+			this.categories.push([...dataToPush]);
 			return;
 		}
 	}
@@ -71,7 +85,21 @@ export default class NavModal extends Vue {
 	get displayCategories():
 		| DropDownCategoriesTypeInterface[]
 		| DropDownThreeListsInterface[] {
-		return this.categories[this.categories.length - 1];
+		if (this.isNoCategoriesSelected) return this.categories[0];
+		const lastCategory = this.categories[this.categories.length - 1];
+		return lastCategory.slice(1, -1);
+	}
+
+	get isNoCategoriesSelected(): boolean {
+		return this.categories.length === 1;
+	}
+
+	get categoriesTitle(): string {
+		return this.categories[0][0].text;
+	}
+
+	get shouldShowPreviousArrow(): boolean {
+		return !this.isNoCategoriesSelected;
 	}
 }
 </script>

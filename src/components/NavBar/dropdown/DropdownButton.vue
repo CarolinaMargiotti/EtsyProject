@@ -8,6 +8,7 @@
 			link: item.link,
 		}"
 		@hoveredButton="componentHovered"
+		@clickedButton="clickedButton"
 	></component>
 </template>
 <script lang="ts">
@@ -49,6 +50,10 @@ export default class DropdownComponent extends Vue {
 
 	public componentHovered(): void {
 		this.$emit("hoveredButton", this.item);
+	}
+
+	public clickedButton(): void {
+		this.$emit("clickedButton");
 	}
 }
 </script>
