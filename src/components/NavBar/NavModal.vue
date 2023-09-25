@@ -1,8 +1,13 @@
 <template>
 	<div
-		class="lg:hidden fixed bg-transparentBlack h-full w-full box-content z-30"
+		v-if="isModalOpen"
+		class="lg:hidden backgroundFadeInAnimation fixed bg-transparentBlack h-full w-full box-content z-30"
+		id="navModal"
 	>
-		<div class="bg-white mt-32 h-full overflow-scroll">
+		<div
+			class="navMoveUp bg-white mt-32 h-full overflow-scroll"
+			id="modalContent"
+		>
 			<div class="pt-1">
 				<div class="font-bold text-center mt-4 grid grid-cols-3">
 					<div class="text-start pl-3">
@@ -14,11 +19,7 @@
 						</button>
 					</div>
 					<div class="text-xl">
-						{{
-							isNoCategoriesSelected
-								? `Browse Categories`
-								: categoriesTitle
-						}}
+						{{ modalTitle }}
 					</div>
 					<div class="text-end pr-3">
 						<button @click="closeModal()">
@@ -50,7 +51,7 @@
 	</div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 import { Categories } from "@/models/Categories";
 import {
 	DropDownCategoriesTypeInterface,
@@ -61,6 +62,11 @@ import ArrowButton from "./buttons/ArrowButton.vue";
 
 @Component({ components: { DropdownButton, ArrowButton } })
 export default class NavModal extends Vue {
+	@Prop()
+	public shouldShowModal!: boolean;
+
+	public isModalOpen: boolean = false;
+
 	public categories: (
 		| DropDownCategoriesTypeInterface[]
 		| DropDownThreeListsInterface[]
@@ -97,7 +103,15 @@ export default class NavModal extends Vue {
 	}
 
 	public closeModal(): void {
-		this.$emit("closeModal");
+		const navModal = document.getElementById("navModal");
+		navModal?.classList.add("backgroundFadeOutAnimation");
+
+		const modalContent = document.getElementById("modalContent");
+		modalContent?.classList.add("navMoveDown");
+
+		setTimeout(() => {
+			this.$emit("closeModal");
+		}, 95);
 	}
 
 	public hasSubcategories(category: any) {
@@ -123,5 +137,67 @@ export default class NavModal extends Vue {
 	get shouldShowPreviousArrow(): boolean {
 		return !this.isNoCategoriesSelected;
 	}
+
+	get modalTitle(): string {
+		return this.isNoCategoriesSelected
+			? "Browse Categories"
+			: this.categoriesTitle;
+	}
+
+	@Watch("shouldShowModal")
+	public shouldShowModalChanged(): void {
+		this.isModalOpen = this.shouldShowModal;
+	}
 }
 </script>
+<style>
+/* appear animations */
+.backgroundFadeInAnimation {
+	animation: backgroundFadeIn 0.1s;
+}
+
+.navMoveUp {
+	animation: moveUp 0.2s;
+}
+
+@keyframes backgroundFadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes moveUp {
+	0% {
+		transform: translateY(150%);
+	}
+
+	100% {
+		transform: translateY(0%);
+	}
+}
+
+/* close animations */
+.backgroundFadeOutAnimation {
+	animation: backgroundFadeOut 0.1s;
+}
+
+.navMoveDown {
+	animation: moveDown 0.2s;
+}
+
+@keyframes backgroundFadeOut {
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes moveDown {
+	100% {
+		transform: translateY(150%);
+	}
+}
+</style>

@@ -3,7 +3,10 @@
 		class="border-b-2 border-solid border-b-lightGray relative bg-white z-10 flex justify-center"
 	>
 		<section class="w-full lg:w-pageContent">
-			<NavModal v-if="shouldShowModal" @closeModal="closeModal()" />
+			<NavModal
+				:shouldShowModal="shouldShowModal"
+				@closeModal="closeModal()"
+			/>
 			<TopBar @openModal="openModal()" />
 			<BottomBar />
 		</section>
