@@ -39,7 +39,7 @@
 							/>
 							<DropdownButton
 								v-else
-								class="mb-5"
+								class="mb-5 mt-2"
 								:item="category"
 								@clickedButton="changeCategory(category)"
 							/>
