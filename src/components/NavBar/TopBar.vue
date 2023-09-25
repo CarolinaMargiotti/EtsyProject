@@ -15,7 +15,9 @@
 		</IconButton>
 		<IconButton :hasCaret="true" class="grow relative content-between">
 			<i class="far h-5 fa-bell"> </i>
-			<span class="notification absolute text-center font-bold text-xs">
+			<span
+				class="notification absolute text-center font-bold text-xs ml-2"
+			>
 				<div
 					class="bg-orange-400 rounded-full border-white border-2 px-1"
 				>
