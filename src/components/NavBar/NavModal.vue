@@ -5,7 +5,7 @@
 		id="navModal"
 	>
 		<div
-			class="navMoveUp bg-white mt-32 h-full overflow-scroll"
+			class="moveUp bg-white mt-32 h-full overflow-scroll"
 			id="modalContent"
 		>
 			<div class="pt-1">
@@ -107,7 +107,7 @@ export default class NavModal extends Vue {
 		navModal?.classList.add("backgroundFadeOutAnimation");
 
 		const modalContent = document.getElementById("modalContent");
-		modalContent?.classList.add("navMoveDown");
+		modalContent?.classList.add("moveDown");
 
 		setTimeout(() => {
 			this.$emit("closeModal");
@@ -150,54 +150,3 @@ export default class NavModal extends Vue {
 	}
 }
 </script>
-<style>
-/* appear animations */
-.backgroundFadeInAnimation {
-	animation: backgroundFadeIn 0.1s;
-}
-
-.navMoveUp {
-	animation: moveUp 0.2s;
-}
-
-@keyframes backgroundFadeIn {
-	0% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes moveUp {
-	0% {
-		transform: translateY(150%);
-	}
-
-	100% {
-		transform: translateY(0%);
-	}
-}
-
-/* close animations */
-.backgroundFadeOutAnimation {
-	animation: backgroundFadeOut 0.1s;
-}
-
-.navMoveDown {
-	animation: moveDown 0.2s;
-}
-
-@keyframes backgroundFadeOut {
-	100% {
-		opacity: 0;
-	}
-}
-
-@keyframes moveDown {
-	100% {
-		transform: translateY(150%);
-	}
-}
-</style>

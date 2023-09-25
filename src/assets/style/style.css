@@ -22,3 +22,53 @@ body {
 	position: absolute;
 	color: gray;
 }
+
+/* appear animations */
+.backgroundFadeInAnimation {
+	animation: backgroundFadeIn 0.1s;
+}
+
+.moveUp {
+	animation: moveUp 0.2s;
+}
+
+@keyframes backgroundFadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes moveUp {
+	0% {
+		transform: translateY(150%);
+	}
+
+	100% {
+		transform: translateY(0%);
+	}
+}
+
+/* close animations */
+.backgroundFadeOutAnimation {
+	animation: backgroundFadeOut 0.1s;
+}
+
+.moveDown {
+	animation: moveDown 0.2s;
+}
+
+@keyframes backgroundFadeOut {
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes moveDown {
+	100% {
+		transform: translateY(150%);
+	}
+}
