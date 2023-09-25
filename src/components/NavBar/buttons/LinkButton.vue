@@ -1,5 +1,9 @@
 <template>
-	<div class="py-3 px-2 linkButton" @mouseover="hoveredButton">
+	<div
+		class="py-3 px-2 linkButton"
+		@mouseover="hoveredButton"
+		@click="clickedButton"
+	>
 		<a class="font-bold" ref="link" :href="link">{{ text }} </a>
 	</div>
 </template>

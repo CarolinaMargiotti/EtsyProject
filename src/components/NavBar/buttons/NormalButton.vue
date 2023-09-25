@@ -4,6 +4,7 @@
 		:href="link"
 		class="flex justify-between py-1.5 hover:bg-gray-200 px-2"
 		@mouseover="hoveredButton"
+		@click="clickedButton"
 	>
 		<div>{{ text }}</div>
 	</a>
