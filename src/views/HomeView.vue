@@ -7,7 +7,7 @@
 				Welcome to Etsy, <a href="#" class="underline">Carolina!</a>
 			</div>
 		</section>
-		<div class="px-headerPad mb-7 grid gap-2">
+		<div class="justify-center mb-7 grid gap-2 px-4 lg:px-0">
 			<BecauseYouViewed
 				:isBigShowcase="true"
 				:viewedItems="[viewedItem, viewedItem]"

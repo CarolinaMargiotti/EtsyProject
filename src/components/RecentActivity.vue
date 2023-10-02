@@ -1,6 +1,8 @@
 <template>
 	<section id="recentActivity" class="mt-2">
-		<div class="flex justify-between items-end pb-4">
+		<div
+			class="flex flex-col lg:flex-row lg:justify-between items-center lg:items-end pb-4"
+		>
 			<label class="text-3xl font-bold">Your recent activity</label>
 			<div class="text-base text-muted">
 				<a href="#" class="underline">Recently viewed</a>
@@ -12,6 +14,7 @@
 		<div class="grid gridActivity gap-4">
 			<DisplayItem
 				v-for="product in activityProducts"
+				class="activityDisplayItem"
 				:key="product.id"
 				:product="product"
 			/>
@@ -95,5 +98,26 @@ export default class RecentActivity extends Vue {
 .gridActivity {
 	grid-template-rows: repeat(2, 9.5rem);
 	grid-template-columns: repeat(5, 1fr);
+}
+
+@media (max-width: 1024px) {
+	.gridActivity {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 9.5rem);
+	}
+
+	.activityDisplayItem:nth-child(n + 5) {
+		display: none;
+	}
+}
+
+@media (max-width: 640px) {
+	.gridActivity {
+		grid-template-columns: 1fr;
+	}
+
+	.activityDisplayItem:nth-child(n + 3) {
+		display: none;
+	}
 }
 </style>
