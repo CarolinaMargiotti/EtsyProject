@@ -100,13 +100,23 @@ export default class RecentActivity extends Vue {
 	grid-template-columns: repeat(5, 1fr);
 }
 
-@media (max-width: 1090px) {
+@media (max-width: 1024px) {
 	.gridActivity {
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: repeat(2, 9.5rem);
 	}
 
 	.activityDisplayItem:nth-child(n + 5) {
+		display: none;
+	}
+}
+
+@media (max-width: 640px) {
+	.gridActivity {
+		grid-template-columns: 1fr;
+	}
+
+	.activityDisplayItem:nth-child(n + 3) {
 		display: none;
 	}
 }

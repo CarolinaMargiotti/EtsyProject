@@ -35,7 +35,7 @@
 		</div>
 		<div
 			v-if="hasGenreLinks"
-			class="mt-3 grid grid-cols-2 lg:grid-cols-4 gap-5"
+			class="mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
 		>
 			<ProductGenreLink
 				v-for="item in genreSimilarItems"
@@ -105,7 +105,7 @@ export default class BecauseYouViewed extends Vue {
 	grid-column: 1 / span 1;
 }
 
-@media (max-width: 1090px) {
+@media (max-width: 1024px) {
 	.displayItem:nth-child(n + 3):nth-child(-n + 6) {
 		display: none;
 	}
@@ -120,6 +120,23 @@ export default class BecauseYouViewed extends Vue {
 	}
 
 	.genreLink:nth-child(n + 3) {
+		display: none;
+	}
+}
+
+@media (max-width: 640px) {
+	.gridContentBig {
+		grid-template-columns: 1fr;
+	}
+	.gridContentBig .displayItem:nth-child(n + 2):nth-child(-n + 6) {
+		display: none;
+	}
+	.firstProduct {
+		grid-row: 1/1;
+		grid-column: 1 / 1;
+	}
+
+	.genreLink:nth-child(n + 2) {
 		display: none;
 	}
 }
