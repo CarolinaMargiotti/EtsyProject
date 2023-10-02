@@ -3,6 +3,7 @@
 		v-if="isModalOpen"
 		class="lg:hidden backgroundFadeInAnimation fixed bg-transparentBlack h-full w-full box-content z-30"
 		id="navModal"
+		@click="closeOutOfBounds($event)"
 	>
 		<div
 			class="moveUp bg-white mt-32 h-full overflow-scroll"
@@ -116,6 +117,16 @@ export default class NavModal extends Vue {
 
 	public hasSubcategories(category: any) {
 		return category?.subcategories || category?.firstColumn;
+	}
+
+	public closeOutOfBounds(event: MouseEvent): void {
+		if (event.target instanceof HTMLElement) {
+			const targetId = event.target.attributes.getNamedItem("id")?.value;
+
+			if (targetId) {
+				this.closeModal();
+			}
+		}
 	}
 
 	get displayCategories():
