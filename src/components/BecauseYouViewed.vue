@@ -23,18 +23,23 @@
 		>
 			<DisplayItem
 				v-if="isBigShowcase"
-				class="firstProduct"
+				class="firstProduct displayItem"
 				:product="similarItems[0]"
 			/>
 			<DisplayItem
 				v-for="item in mainSimilarItems"
+				class="displayItem"
 				:key="item.id"
 				:product="item"
 			/>
 		</div>
-		<div v-if="hasGenreLinks" class="mt-3 grid grid-cols-4 gap-5">
+		<div
+			v-if="hasGenreLinks"
+			class="mt-3 grid grid-cols-2 lg:grid-cols-4 gap-5"
+		>
 			<ProductGenreLink
 				v-for="item in genreSimilarItems"
+				class="genreLink"
 				:key="item.id"
 				:product="item"
 			/>
@@ -67,10 +72,12 @@ export default class BecauseYouViewed extends Vue {
 	public mounted(): void {
 		const endOfMainItems = this.isBigShowcase ? 7 : 4;
 		const startOfMainItems = this.isBigShowcase ? 1 : 0;
+
 		this.mainSimilarItems = this.similarItems.slice(
 			startOfMainItems,
 			endOfMainItems
 		);
+
 		this.genreSimilarItems = this.similarItems.slice(
 			endOfMainItems,
 			this.similarItems.length - 1
@@ -96,5 +103,24 @@ export default class BecauseYouViewed extends Vue {
 .firstProduct {
 	grid-row: 1/-1;
 	grid-column: 1 / span 1;
+}
+
+@media (max-width: 1090px) {
+	.displayItem:nth-child(n + 3):nth-child(-n + 6) {
+		display: none;
+	}
+
+	.gridContentBig {
+		grid-template-columns: 2fr repeat(1, 1fr);
+		grid-template-rows: repeat(2, 12rem);
+	}
+
+	.gridContentNormal {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.genreLink:nth-child(n + 3) {
+		display: none;
+	}
 }
 </style>
