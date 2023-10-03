@@ -9,6 +9,8 @@ module.exports = {
 			backgroundColor: {
 				lightGray: "#e1e3df",
 				lighterGray: "#F3F3F3",
+				lightBlue: "#D7E6F5",
+				darkerBlue: "#4D6BC6",
 				toastedYellow: "#FDEBD2",
 				transparentBlack: "#5c5c5c80",
 			},
@@ -34,6 +36,9 @@ module.exports = {
 				"max-lg": {
 					max: "1023px",
 				},
+			},
+			fill: {
+				lightBlue: "#D7E6F5",
 			},
 		},
 	},

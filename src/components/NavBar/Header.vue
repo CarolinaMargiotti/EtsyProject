@@ -23,7 +23,7 @@ import BottomBar from "./BottomBar.vue";
 @Component({
 	components: { Logo, Input, TopBar, NavModal, BottomBar },
 })
-export default class NavBar extends Vue {
+export default class Header extends Vue {
 	public shouldShowModal: boolean = false;
 
 	public openModal(): void {

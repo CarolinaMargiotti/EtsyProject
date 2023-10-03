@@ -1,15 +1,17 @@
 <template>
 	<div id="app" class="tracking-regular">
-		<NavBar />
+		<Header />
 		<main>
 			<router-view />
 		</main>
+		<Footer />
 	</div>
 </template>
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import NavBar from "./components/NavBar/NavBar.vue";
+import Header from "./components/NavBar/Header.vue";
+import Footer from "./components/Footer/Footer.vue";
 
-@Component({ components: { NavBar } })
+@Component({ components: { Header, Footer } })
 export default class App extends Vue {}
 </script>
