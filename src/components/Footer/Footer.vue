@@ -3,7 +3,7 @@
 		<div class="bg-toastedYellow w-full flex items-center flex-col">
 			<TopBeigeRippedPaper />
 			<BeigeFooterContentVue />
-			<TopBlueRippedPaper class="w-1/2" />
+			<TopBlueRippedPaper class="w-9/12 -m-1" />
 			<div class="bg-lightBlue w-full">teste</div>
 			<div class="w-full bg-darkerBlue">
 				<TopDarkerBlueRippedPaper />

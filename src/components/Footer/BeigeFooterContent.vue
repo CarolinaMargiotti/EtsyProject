@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full flex flex-col items-center">
+	<div class="w-full flex flex-col items-center mb-12">
 		<h2 class="text-4xl">What is Etsy?</h2>
 		<a href="#" class="underline"> Read our wonderfully weird story </a>
 		<div class="grid grid-cols-3 mt-10 w-8/12">
