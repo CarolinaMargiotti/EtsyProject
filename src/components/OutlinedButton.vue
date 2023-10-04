@@ -1,9 +1,15 @@
 <template>
 	<button
-		class="outlineButton border-2 border-black rounded-full font-bold py-3 px-4 transition-all hover:shadow-xl"
+		class="outlineButton border-2 rounded-full font-bold py-3 px-4 transition-all hover:shadow-xl"
+		:class="{
+			'border-black': themeWhite,
+			'border-white': !themeWhite,
+			'text-black': themeWhite,
+			'text-white': !themeWhite,
+		}"
 		@click="buttonClicked"
 	>
-		{{ buttonText }}
+		<slot></slot>
 	</button>
 </template>
 <script lang="ts">
@@ -12,8 +18,8 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 	components: {},
 })
 export default class OutlinedButton extends Vue {
-	@Prop()
-	public buttonText!: string;
+	@Prop({ default: true })
+	public themeWhite?: boolean;
 
 	public buttonClicked(): void {
 		this.$emit("buttonClicked");

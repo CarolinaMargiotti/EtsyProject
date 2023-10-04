@@ -11,11 +11,13 @@ module.exports = {
 				lighterGray: "#F3F3F3",
 				lightBlue: "#D7E6F5",
 				darkerBlue: "#4D6BC6",
+				grayBlue: "#2F466C",
 				toastedYellow: "#FDEBD2",
 				transparentBlack: "#5c5c5c80",
 			},
 			colors: {
 				muted: "rgb(89, 89, 89)",
+				grayBlue: "#2F466C",
 			},
 			letterSpacing: {
 				regular: "1px",

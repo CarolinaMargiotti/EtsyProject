@@ -31,7 +31,7 @@
 			<h4 class="font-bold text-xl mb-4">
 				Have a question? Well, We've got some answers
 			</h4>
-			<OutlinedButton class="text-sm" buttonText="Go to Help Center" />
+			<OutlinedButton class="text-sm"> Go to Help Center </OutlinedButton>
 		</div>
 	</div>
 </template>
