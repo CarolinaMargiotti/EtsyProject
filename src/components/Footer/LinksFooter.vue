@@ -1,6 +1,6 @@
 <template>
 	<div class="flex justify-center bg-grayBlue">
-		<div class="grid grid-cols-4 gap-16 text-white py-10 px-7">
+		<div class="grid linksGrid gap-16 text-white py-10 px-7">
 			<div>
 				<ul class="grid grid-cols-1 gap-4">
 					<li>
@@ -92,15 +92,19 @@
 					<li>
 						<a href="#"> Privacy Settings </a>
 					</li>
-					<OutlinedButton class="w-fit mt-6" :themeWhite="false">
-						<span
-							class="text-grayBlue bg-white px-2 py-1 rounded w-fit mr-2"
-						>
-							<i class="fa-brands fa-etsy"></i>
-						</span>
-						Download the Etsy App
+					<OutlinedButton class="w-full mt-6" :themeWhite="false">
+						<div class="md:flex items-center">
+							<span
+								class="text-grayBlue bg-white px-2 py-1 rounded w-fit mr-2"
+							>
+								<i class="fa-brands fa-etsy"></i>
+							</span>
+							<div class="mt-2 md:mt-0">
+								Download the Etsy App
+							</div>
+						</div>
 					</OutlinedButton>
-					<div class="grid grid-cols-6 gap-4 text-3xl mt-2">
+					<div class="grid socialMediaGrid gap-4 text-3xl mt-2">
 						<i class="fa-brands fa-instagram"></i>
 						<i class="fa-brands fa-square-facebook"></i>
 						<i class="fa-brands fa-pinterest"></i>
@@ -119,3 +123,12 @@ import OutlinedButton from "../OutlinedButton.vue";
 @Component({ components: { OutlinedButton } })
 export default class LinksFooter extends Vue {}
 </script>
+<style>
+.socialMediaGrid {
+	grid-template-columns: repeat(auto-fit, minmax(1.5rem, 1fr));
+}
+
+.linksGrid {
+	grid-template-columns: repeat(3, minmax(0, 1fr)) 1.5fr;
+}
+</style>
