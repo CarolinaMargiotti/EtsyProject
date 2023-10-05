@@ -4,93 +4,99 @@
 			<div>
 				<ul class="grid grid-cols-1 gap-4">
 					<li>
-						<a href="#">
+						<a href="#" class="hover:underline">
 							<h5 class="font-bold text-base">Shop</h5>
 						</a>
 					</li>
 					<li>
-						<a href="#"> Gift cards </a>
+						<a href="#" class="hover:underline"> Gift cards </a>
 					</li>
 					<li>
-						<a href="#"> Etsy Registry </a>
+						<a href="#" class="hover:underline"> Etsy Registry </a>
 					</li>
 					<li>
-						<a href="#"> Sitemap </a>
+						<a href="#" class="hover:underline"> Sitemap </a>
 					</li>
 					<li>
-						<a href="#"> Etsy blog </a>
+						<a href="#" class="hover:underline"> Etsy blog </a>
 					</li>
 					<li>
-						<a href="#"> Etsy United Kingdom </a>
+						<a href="#" class="hover:underline">
+							Etsy United Kingdom
+						</a>
 					</li>
 					<li>
-						<a href="#"> Etsy Germany </a>
+						<a href="#" class="hover:underline"> Etsy Germany </a>
 					</li>
 					<li>
-						<a href="#"> Etsy Canada </a>
+						<a href="#" class="hover:underline"> Etsy Canada </a>
 					</li>
 				</ul>
 			</div>
 			<div>
 				<ul class="grid grid-cols-1 gap-4">
 					<li>
-						<a href="#">
+						<a href="#" class="hover:underline">
 							<h5 class="font-bold text-base">Sell</h5>
 						</a>
 					</li>
 					<li>
-						<a href="#"> Sell on Etsy </a>
+						<a href="#" class="hover:underline"> Sell on Etsy </a>
 					</li>
 					<li>
-						<a href="#"> Teams </a>
+						<a href="#" class="hover:underline"> Teams </a>
 					</li>
 					<li>
-						<a href="#"> Forums </a>
+						<a href="#" class="hover:underline"> Forums </a>
 					</li>
 					<li>
-						<a href="#"> Affiliates & Creators </a>
+						<a href="#" class="hover:underline">
+							Affiliates & Creators
+						</a>
 					</li>
 				</ul>
 			</div>
 			<div>
 				<ul class="grid grid-cols-1 gap-4">
 					<li>
-						<a href="#">
+						<a href="#" class="hover:underline">
 							<h5 class="font-bold text-base">About</h5>
 						</a>
 					</li>
 					<li>
-						<a href="#"> Etsy,Inc. </a>
+						<a href="#" class="hover:underline"> Etsy,Inc. </a>
 					</li>
 					<li>
-						<a href="#"> Policies </a>
+						<a href="#" class="hover:underline"> Policies </a>
 					</li>
 					<li>
-						<a href="#"> Investors </a>
+						<a href="#" class="hover:underline"> Investors </a>
 					</li>
 					<li>
-						<a href="#"> Careers </a>
+						<a href="#" class="hover:underline"> Careers </a>
 					</li>
 					<li>
-						<a href="#"> Press </a>
+						<a href="#" class="hover:underline"> Press </a>
 					</li>
 					<li>
-						<a href="#"> Impact </a>
+						<a href="#" class="hover:underline"> Impact </a>
 					</li>
 				</ul>
 			</div>
 			<div>
 				<ul class="grid grid-cols-1 gap-4">
 					<li>
-						<a href="#">
+						<a href="#" class="hover:underline">
 							<h5 class="font-bold text-base">Help</h5>
 						</a>
 					</li>
 					<li>
-						<a href="#"> Help Center </a>
+						<a href="#" class="hover:underline"> Help Center </a>
 					</li>
 					<li>
-						<a href="#"> Privacy Settings </a>
+						<a href="#" class="hover:underline">
+							Privacy Settings
+						</a>
 					</li>
 					<OutlinedButton class="w-full mt-6" :themeWhite="false">
 						<div class="md:flex items-center">
