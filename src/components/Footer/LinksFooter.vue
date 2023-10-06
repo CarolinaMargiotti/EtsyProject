@@ -1,6 +1,6 @@
 <template>
 	<div class="flex justify-center bg-grayBlue">
-		<div class="grid linksGrid gap-16 text-white py-10 px-7">
+		<div class="grid linksGrid gap-16 text-white pt-10 pb-3 px-7 w-9/12">
 			<div>
 				<ul class="grid grid-cols-1 gap-4">
 					<li>
@@ -98,7 +98,7 @@
 							Privacy Settings
 						</a>
 					</li>
-					<OutlinedButton class="w-full mt-6" :themeWhite="false">
+					<OutlinedButton class="w-max mt-6" :themeWhite="false">
 						<div class="md:flex items-center">
 							<span
 								class="text-grayBlue bg-white px-2 py-1 rounded w-fit mr-2"
@@ -110,32 +110,42 @@
 							</div>
 						</div>
 					</OutlinedButton>
-					<div class="grid socialMediaGrid gap-5 text-3xl mt-2">
-						<IconButton class="z-20">
-							<i
-								class="hover:cursor-pointer fa-brands fa-instagram w-auto"
-							></i>
-						</IconButton>
-						<IconButton class="z-20">
-							<i
-								class="hover:cursor-pointer fa-brands fa-square-facebook w-auto"
-							></i>
-						</IconButton>
-						<IconButton class="z-20">
-							<i
-								class="hover:cursor-pointer fa-brands fa-pinterest w-auto"
-							></i>
-						</IconButton>
-						<IconButton class="z-20">
-							<i
-								class="hover:cursor-pointer fa-brands fa-twitter w-auto"
-							></i>
-						</IconButton>
-						<IconButton class="z-20">
-							<i
-								class="hover:cursor-pointer fa-brands fa-youtube w-auto"
-							></i>
-						</IconButton>
+					<div class="grid socialMediaGrid text-3xl mt-2">
+						<div>
+							<IconButton class="z-20 w-max">
+								<i
+									class="hover:cursor-pointer fa-brands fa-instagram"
+								></i>
+							</IconButton>
+						</div>
+						<div>
+							<IconButton class="z-20 w-max">
+								<i
+									class="hover:cursor-pointer fa-brands fa-square-facebook"
+								></i>
+							</IconButton>
+						</div>
+						<div>
+							<IconButton class="z-20 w-max">
+								<i
+									class="hover:cursor-pointer fa-brands fa-pinterest"
+								></i>
+							</IconButton>
+						</div>
+						<div>
+							<IconButton class="z-20 w-max">
+								<i
+									class="hover:cursor-pointer fa-brands fa-twitter"
+								></i>
+							</IconButton>
+						</div>
+						<div>
+							<IconButton class="z-20 w-max">
+								<i
+									class="hover:cursor-pointer fa-brands fa-youtube"
+								></i>
+							</IconButton>
+						</div>
 					</div>
 				</ul>
 			</div>

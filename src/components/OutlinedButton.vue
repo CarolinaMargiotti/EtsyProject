@@ -1,6 +1,6 @@
 <template>
 	<button
-		class="outlineButton border-2 rounded-full font-bold py-3 px-4 transition-all hover:shadow-xl"
+		class="outlineButton border-2 rounded-full font-bold py-1 px-4 transition-all hover:shadow-xl"
 		:class="{
 			'border-black': themeWhite,
 			'border-white': !themeWhite,

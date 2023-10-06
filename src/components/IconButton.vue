@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="iconHover flex items-center mx-1"
-		:class="{ 'justify-between': hasCaret, 'justify-center': !hasCaret }"
+		:class="{ 'justify-between': hasCaret }"
 	>
 		<slot />
 		<i
