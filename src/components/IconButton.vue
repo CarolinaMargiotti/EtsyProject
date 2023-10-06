@@ -1,5 +1,5 @@
 <template>
-	<div
+	<button
 		class="iconHover flex items-center mx-1"
 		:class="{ 'justify-between': hasCaret }"
 	>
@@ -8,7 +8,7 @@
 			v-if="hasCaret"
 			class="ml-2 fa-solid text-gray-400 fa-caret-down"
 		></i>
-	</div>
+	</button>
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";

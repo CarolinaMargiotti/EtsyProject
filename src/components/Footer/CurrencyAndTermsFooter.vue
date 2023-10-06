@@ -1,7 +1,9 @@
 <template>
 	<div class="flex justify-center bg-bluePurple py-5 text-white">
 		<div class="flex justify-between w-8/12">
-			<div class="font-bold">Canada | English (UK) | $(CAD)</div>
+			<IconButton class="z-20">
+				<div class="font-bold">Canada | English (UK) | $(CAD)</div>
+			</IconButton>
 			<div class="flex justify-evenly">
 				<span class="mr-5">@ 2023 Etsy, Inc.</span>
 				<a href="#" class="underline">Terms of Use</a>
@@ -13,3 +15,10 @@
 		</div>
 	</div>
 </template>
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import IconButton from "../IconButton.vue";
+
+@Component({ components: { IconButton } })
+export default class CurrencyAndTermsFooter extends Vue {}
+</script>
