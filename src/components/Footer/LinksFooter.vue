@@ -110,12 +110,32 @@
 							</div>
 						</div>
 					</OutlinedButton>
-					<div class="grid socialMediaGrid gap-4 text-3xl mt-2">
-						<i class="fa-brands fa-instagram"></i>
-						<i class="fa-brands fa-square-facebook"></i>
-						<i class="fa-brands fa-pinterest"></i>
-						<i class="fa-brands fa-twitter"></i>
-						<i class="fa-brands fa-youtube"></i>
+					<div class="grid socialMediaGrid gap-5 text-3xl mt-2">
+						<IconButton class="z-20">
+							<i
+								class="hover:cursor-pointer fa-brands fa-instagram w-auto"
+							></i>
+						</IconButton>
+						<IconButton class="z-20">
+							<i
+								class="hover:cursor-pointer fa-brands fa-square-facebook w-auto"
+							></i>
+						</IconButton>
+						<IconButton class="z-20">
+							<i
+								class="hover:cursor-pointer fa-brands fa-pinterest w-auto"
+							></i>
+						</IconButton>
+						<IconButton class="z-20">
+							<i
+								class="hover:cursor-pointer fa-brands fa-twitter w-auto"
+							></i>
+						</IconButton>
+						<IconButton class="z-20">
+							<i
+								class="hover:cursor-pointer fa-brands fa-youtube w-auto"
+							></i>
+						</IconButton>
 					</div>
 				</ul>
 			</div>
@@ -125,13 +145,14 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import OutlinedButton from "../OutlinedButton.vue";
+import IconButton from "../IconButton.vue";
 
-@Component({ components: { OutlinedButton } })
+@Component({ components: { OutlinedButton, IconButton } })
 export default class LinksFooter extends Vue {}
 </script>
 <style>
 .socialMediaGrid {
-	grid-template-columns: repeat(auto-fit, minmax(1.5rem, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
 }
 
 .linksGrid {

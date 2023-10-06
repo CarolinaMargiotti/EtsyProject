@@ -43,7 +43,7 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import SearchBar from "./SearchBar.vue";
 import Logo from "../Logo.vue";
-import IconButton from "./IconButton.vue";
+import IconButton from "../IconButton.vue";
 
 @Component({ components: { SearchBar, Logo, IconButton } })
 export default class TopBar extends Vue {
