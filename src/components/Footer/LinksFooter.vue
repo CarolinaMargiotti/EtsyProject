@@ -1,6 +1,6 @@
 <template>
 	<div class="flex justify-center bg-grayBlue">
-		<div class="grid linksGrid gap-16 text-white pt-10 pb-7 px-7 w-9/12">
+		<div class="grid linksGrid gap-16 text-white pt-10 pb-7 px-7 lg:w-9/12">
 			<div>
 				<ul class="grid grid-cols-1 gap-4">
 					<li>
@@ -98,7 +98,7 @@
 							Privacy Settings
 						</a>
 					</li>
-					<OutlinedButton class="w-max mt-6" :themeWhite="false">
+					<OutlinedButton class="w-auto mt-6" :themeWhite="false">
 						<div class="md:flex items-center">
 							<span
 								class="text-grayBlue bg-white px-2 py-1 rounded w-fit mr-2"
@@ -162,7 +162,8 @@ export default class LinksFooter extends Vue {}
 </script>
 <style>
 .socialMediaGrid {
-	grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(2rem, 3rem));
+	grid-template-rows: repeat(auto-fit, minmax(1rem, 3rem));
 }
 
 .linksGrid {
