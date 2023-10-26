@@ -1,6 +1,6 @@
 <template>
 	<div class="flex justify-center bg-grayBlue">
-		<div class="grid linksGrid gap-16 text-white pt-10 pb-3 px-7 w-9/12">
+		<div class="grid linksGrid gap-16 text-white pt-10 pb-7 px-7 w-9/12">
 			<div>
 				<ul class="grid grid-cols-1 gap-4">
 					<li>
