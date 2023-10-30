@@ -1,7 +1,9 @@
 <template>
 	<button
 		class="iconHover flex items-center mx-1"
-		:class="{ 'justify-between': hasCaret }"
+		:class="{
+			'justify-between': hasCaret,
+		}"
 	>
 		<slot />
 		<i
@@ -40,6 +42,6 @@ export default class IconButton extends Vue {
 }
 
 .iconHover:hover::before {
-	transform: scale(180%);
+	transform: scale(100%);
 }
 </style>

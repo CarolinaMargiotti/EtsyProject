@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<IconButton>
+	<div class="w-full">
+		<IconButton class="z-10 w-full" :fitFormingHover="true">
 			<slot name="title"></slot>
 		</IconButton>
 		<slot name="content"></slot>

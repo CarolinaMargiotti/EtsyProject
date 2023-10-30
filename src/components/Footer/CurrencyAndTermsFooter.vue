@@ -3,7 +3,7 @@
 		<div
 			class="flex lg:justify-between items-center flex-col lg:flex-row lg:w-8/12"
 		>
-			<IconButton class="z-20 w-max">
+			<IconButton class="z-20 w-max px-5 py-2">
 				<div class="font-bold">
 					{{ country }} | {{ language }} | $({{ currency }})
 				</div>
