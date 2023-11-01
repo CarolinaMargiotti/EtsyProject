@@ -4,16 +4,16 @@
 		<div class="lg:hidden"></div>
 		<div class="mobileSearch flex">
 			<button @click="openModalCategories()">
-				<IconButton class="lg:hidden mr-4 h-max self-center">
+				<IconButton class="lg:hidden mr-2 h-max self-center p-3">
 					<i class="fas fa-bars"></i>
 				</IconButton>
 			</button>
 			<SearchBar />
 		</div>
-		<IconButton>
+		<IconButton class="p-3">
 			<i class="h-5 far fa-heart"></i>
 		</IconButton>
-		<IconButton :hasCaret="true" class="grow relative content-between">
+		<IconButton :hasCaret="true" class="grow relative content-between p-3">
 			<i class="far h-5 fa-bell"> </i>
 			<span
 				class="notification absolute text-center font-bold text-xs ml-2"
@@ -25,7 +25,7 @@
 				</div>
 			</span>
 		</IconButton>
-		<IconButton :hasCaret="true">
+		<IconButton :hasCaret="true" class="px-3 py-2">
 			<img
 				src="@/assets/img/default-profile-icon.jpg"
 				width="30px"
@@ -34,7 +34,7 @@
 				alt="default icon profile"
 			/>
 		</IconButton>
-		<IconButton>
+		<IconButton class="p-3">
 			<i class="h-5 fas fa-cart-shopping"></i>
 		</IconButton>
 	</section>
@@ -43,7 +43,7 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import SearchBar from "./SearchBar.vue";
 import Logo from "../Logo.vue";
-import IconButton from "./IconButton.vue";
+import IconButton from "../IconButton.vue";
 
 @Component({ components: { SearchBar, Logo, IconButton } })
 export default class TopBar extends Vue {
@@ -64,7 +64,6 @@ export default class TopBar extends Vue {
 			[col-start] max-content [col-end]
 		)
 		[full-end];
-	column-gap: 1.3rem;
 	align-items: center;
 }
 

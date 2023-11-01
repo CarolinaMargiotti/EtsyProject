@@ -9,11 +9,16 @@ module.exports = {
 			backgroundColor: {
 				lightGray: "#e1e3df",
 				lighterGray: "#F3F3F3",
+				lightBlue: "#D7E6F5",
+				darkerBlue: "#4D6BC6",
+				grayBlue: "#2F466C",
+				bluePurple: "#232347",
 				toastedYellow: "#FDEBD2",
 				transparentBlack: "#5c5c5c80",
 			},
 			colors: {
 				muted: "rgb(89, 89, 89)",
+				grayBlue: "#2F466C",
 			},
 			letterSpacing: {
 				regular: "1px",
@@ -34,6 +39,9 @@ module.exports = {
 				"max-lg": {
 					max: "1023px",
 				},
+			},
+			fill: {
+				lightBlue: "#D7E6F5",
 			},
 		},
 	},
