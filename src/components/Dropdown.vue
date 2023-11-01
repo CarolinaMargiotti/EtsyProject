@@ -6,11 +6,11 @@
 					class="flex justify-between w-full text-lg font-bold items-center"
 				>
 					<slot name="title"></slot>
-					<div>
-						<div v-show="!showContent">
+					<div class="text-sm">
+						<div v-show="!showContent" class="rotateArrowDown">
 							<i class="fas fa-chevron-down"></i>
 						</div>
-						<div v-show="showContent">
+						<div v-show="showContent" class="rotateArrowUp">
 							<i class="fas fa-chevron-up"></i>
 						</div>
 					</div>
@@ -51,6 +51,34 @@ export default class Dropdown extends Vue {
 	100% {
 		opacity: 1;
 		transform: translateY(0%);
+	}
+}
+
+.rotateArrowDown {
+	animation: rotateDown 0.25s ease-out;
+}
+
+@keyframes rotateDown {
+	0% {
+		transform: rotateZ(180deg);
+	}
+
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
+
+.rotateArrowUp {
+	animation: rotateUp 0.25s ease-out;
+}
+
+@keyframes rotateUp {
+	0% {
+		transform: rotateZ(180deg);
+	}
+
+	100% {
+		transform: rotateZ(0deg);
 	}
 }
 </style>
