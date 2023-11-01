@@ -1,7 +1,7 @@
 <template>
 	<div class="flex justify-center bg-grayBlue">
 		<div
-			class="text-white grid linksGrid gap-16 pt-10 pb-7 px-7 lg:w-9/12 w-full"
+			class="text-white grid linksGrid gap-6 pt-10 pb-7 px-7 lg:w-9/12 w-full"
 		>
 			<div v-for="(footer, index) in footers" :key="index">
 				<ul class="hidden sm:inline">
@@ -37,6 +37,9 @@
 						</ul>
 					</template>
 				</Dropdown>
+			</div>
+			<div class="sm:hidden flex justify-center">
+				<FooterButtonsGalore />
 			</div>
 		</div>
 	</div>
