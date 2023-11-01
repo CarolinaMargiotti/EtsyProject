@@ -8,13 +8,19 @@
 					{{ country }} | {{ language }} | $({{ currency }})
 				</div>
 			</IconButton>
-			<div class="flex justify-evenly mt-4 lg:mt-0">
-				<span class="mr-5">@ 2023 Etsy, Inc.</span>
-				<a href="#" class="underline">Terms of Use</a>
-				<a href="#" class="underline mr-5">Privacy</a>
-				<a href="#" class="underline mr-5">Interest-based-ads</a>
-				<a href="#" class="underline mr-5">Local Shops</a>
-				<a href="#" class="underline">Regions</a>
+			<div
+				class="flex flex-col md:flex-row items-center md:items-start mt-4 text-xs lg:mt-0"
+			>
+				<span class="lg:mr-5 mb-1 w-max">@ 2023 Etsy, Inc.</span>
+				<div class="flex justify-evenly">
+					<a href="#" class="underline md:mr-5 mr-2">Terms of Use</a>
+					<a href="#" class="underline md:mr-5 mr-2">Privacy</a>
+					<a href="#" class="underline md:mr-5 mr-2"
+						>Interest-based-ads</a
+					>
+					<a href="#" class="underline md:mr-5 mr-2">Local Shops</a>
+					<a href="#" class="underline">Regions</a>
+				</div>
 			</div>
 		</div>
 	</div>
