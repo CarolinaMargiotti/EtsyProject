@@ -35,4 +35,14 @@ export default class ProductGenreLink extends Vue {
 .displayClass:hover .linkButton::after {
 	margin-left: 0.25rem;
 }
+
+.displayClass {
+	width: 16.5rem;
+}
+
+@media (max-width: 700px) {
+	.displayClass {
+		width: 100%;
+	}
+}
 </style>
