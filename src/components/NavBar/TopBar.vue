@@ -24,6 +24,7 @@
 					{{ notificationNumbers }}
 				</div>
 			</span>
+			<DropdownToolTip />
 		</IconButton>
 		<IconButton :hasCaret="true" class="px-3 py-2">
 			<img
@@ -44,8 +45,9 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 import SearchBar from "./SearchBar.vue";
 import Logo from "../Logo.vue";
 import IconButton from "../IconButton.vue";
+import DropdownToolTip from "../DropdownToolTip.vue";
 
-@Component({ components: { SearchBar, Logo, IconButton } })
+@Component({ components: { SearchBar, Logo, IconButton, DropdownToolTip } })
 export default class TopBar extends Vue {
 	@Prop({ default: 7 })
 	public notificationNumbers!: number;
