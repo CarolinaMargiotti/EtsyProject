@@ -24,7 +24,7 @@
 					{{ notificationNumbers }}
 				</div>
 			</span>
-			<DropdownToolTip />
+			<DropdownToolTip :tooltipColorIsBlue="true" />
 		</IconButton>
 		<IconButton :hasCaret="true" class="px-3 py-2">
 			<img

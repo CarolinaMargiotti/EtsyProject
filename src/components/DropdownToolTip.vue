@@ -1,24 +1,34 @@
 <template>
-	<div class="dropdownTooltip bg-white rounded-lg">
-		<div class="dropdownItems p-3">teste</div>
+	<div
+		class="dropdownTooltip bg-white rounded-lg"
+		:class="{ blueTooltipTip: tooltipColorIsBlue }"
+	>
+		<div class="dropdownItems">
+			<ProfiledropdownContent />
+		</div>
 	</div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 import NotificationDropdownContent from "./Header/NotificationDropdownContent.vue";
+import ProfiledropdownContent from "./Header/ProfiledropdownContent.vue";
 
 @Component({
-	components: { NotificationDropdownContent },
+	components: { ProfiledropdownContent },
 })
-export default class DropdownToolTip extends Vue {}
+export default class DropdownToolTip extends Vue {
+	@Prop()
+	public tooltipColorIsBlue!: boolean;
+}
 </script>
 <style>
 .dropdownTooltip {
 	position: absolute;
 	width: max-content;
-	transform: translateX(-50%) translateY(1rem);
+	transform: translateY(1rem);
 	box-shadow: 0px 0px 2px black;
 	top: 100%;
+	right: -32%;
 }
 
 .dropdownTooltip::after {
@@ -33,5 +43,13 @@ export default class DropdownToolTip extends Vue {}
 	background-color: white;
 	width: 1rem;
 	height: 1rem;
+}
+
+.whiteTooltipTip::after {
+	background-color: white;
+}
+
+.blueTooltipTip::after {
+	background-color: rgb(191 219 254);
 }
 </style>

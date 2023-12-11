@@ -72,3 +72,9 @@ body {
 		transform: translateY(150%);
 	}
 }
+
+.divider {
+	height: 0.8px;
+	width: 100%;
+	background-color: lightgray;
+}
